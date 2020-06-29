@@ -6,30 +6,25 @@
 
 @font-face {
   font-family: 'roboto-black';
-  font-style:  normal;
   src: url("./fonts/roboto-black.woff") format("woff2");
 }
 
 @font-face {
   font-family: 'roboto-medium';
-  font-style:  normal;
   src: url("./fonts/roboto-medium.woff") format("woff2");
 }
 
 @font-face {
   font-family: 'roboto-regular';
-  font-style:  normal;
   src: url("./fonts/roboto-regular.woff") format("woff2");
 }
 
 @font-face {
   font-family: 'robotoslab-regular';
-  font-style:  normal;
   src: url("./fonts/robotoslab-regular.woff") format("woff2");
 }
 
 @font-face {
   font-family: 'sourcesanspro-regular';
-  font-style:  normal;
   src: url("./fonts/sourcesanspro-regular.woff") format("woff2");
 }

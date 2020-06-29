@@ -1,6 +1,9 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts.css);
 @import url(../blocks/preloader/preloader.css);
+@import url(../blocks/background/background.css);
+@import url(../blocks/close/close.css);
+@import url(../blocks/text-color/not-articles/not-articles.css);
 
 @import url(../blocks/root/root.css);
 @import url(../blocks/header/header.css);

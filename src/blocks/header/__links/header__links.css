@@ -1,0 +1,21 @@
+.header__links {
+  width: calc(100% - 208px);
+  border: 1px solid yellow;
+  box-sizing: content-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1440px) {
+  .header__links {
+    width: calc(100% - 80px);
+  }
+}
+
+@media  all and (max-width : 767px) {
+  .header__links {
+    width: calc(100% - 40px);
+  }
+} 

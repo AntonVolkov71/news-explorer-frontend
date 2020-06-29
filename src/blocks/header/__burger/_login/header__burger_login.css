@@ -1,0 +1,9 @@
+.header__burger-login::after {
+  content: "";
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin-right: -2px;
+  vertical-align: middle;
+  background: url(../../../../images/menu_black.png) no-repeat;
+}

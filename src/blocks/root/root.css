@@ -1,17 +1,9 @@
-@import url(./__section/root__section.css);
-
 .root {
+    position: relative;
+    min-width: 320px;
+    max-width: 1440px;
+    height: auto;
+    margin: 0;
+    padding: 0;
     background-color: #fff;
-    min-height: 100vh;
-    font-family: 'Inter';
-    padding-bottom: 194px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
-
-@media screen and (max-width: 1024px) {
-    .root {
-        padding-bottom: 140px;
-    }
-}
-

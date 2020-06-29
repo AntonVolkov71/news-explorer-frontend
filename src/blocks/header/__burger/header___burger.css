@@ -1,0 +1,10 @@
+@import url(./_login/header__burger_login.css);
+@import url(./_unath/header__burger_unath.css);
+
+
+@media only screen and (min-width: 768px) and (max-width : 1440px) {
+  .header__burger {
+    display: none
+  }
+}
+

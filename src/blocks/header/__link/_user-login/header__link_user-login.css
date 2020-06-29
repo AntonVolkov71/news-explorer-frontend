@@ -1,0 +1,10 @@
+.header__link_user-login:after {
+  content: "";
+  display: inline-block;
+  background-image: url(../../../../images/Union_black.png);
+  height: 16px;
+  width: 18px;
+  margin-left: 8px;
+  margin-right: -1px;
+  vertical-align: middle;
+}
