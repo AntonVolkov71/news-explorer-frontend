@@ -1,0 +1,9 @@
+@import url(./__text.css/header__text.css);
+
+.header {
+  min-height: 132px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
