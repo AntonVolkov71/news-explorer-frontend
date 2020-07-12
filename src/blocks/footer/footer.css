@@ -1,8 +1,6 @@
 @import url(./_nav-link/footer_nav-link.css);
 
 .footer {
-  /* width: 100%; */
-
   box-sizing: border-box;
 
 
@@ -15,5 +13,4 @@
 
   background-color: #fff;
 
-  border: 1px solid red;
 }

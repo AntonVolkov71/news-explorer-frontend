@@ -16,13 +16,10 @@
   justify-content: space-between;
 
  
-  /* width: 100%; */
-  /* margin: 0 140px; */
   padding: 30px 0;
 
   box-sizing: border-box;
 
-  border: 1px solid black;
 }
 @media only screen and (min-width: 768px) and (max-width : 1024px) {
   .nav {
@@ -32,6 +29,6 @@
 
 @media only screen and (max-width : 767px) {
   .nav {
-    padding: 16px;
+    padding: 16px 0;
   }
 }

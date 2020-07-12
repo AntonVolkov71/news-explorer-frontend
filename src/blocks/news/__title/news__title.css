@@ -10,3 +10,19 @@
 
   color: #1A1B22;
 }
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .news__title {
+    margin: 10px 0;
+    font-size: 22px;
+    line-height: 24px;
+    }
+}
+
+@media only screen and (max-width : 767px) {
+  .news__title {
+    margin: 10px 0;
+    font-size: 22px;
+    line-height: 24px;
+  }
+}

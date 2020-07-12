@@ -1,18 +1,12 @@
 .content-size {
-  /* width: 85%; */
-width: 80.5556%;
+  width: 89%;
   margin: 0  auto;
 
-  /* box-sizing: border-box; */
 }
 
-@media only screen and (min-width: 768px) and (max-width : 1024px) {
+
+@media only screen and  (max-width : 1024px) {
   .content-size {
     width: 89.5833%
-  }
-}
-@media only screen and  (max-width : 767px) {
-  .content-size {
-    width: 100%;
   }
 }

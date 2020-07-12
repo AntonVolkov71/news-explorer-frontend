@@ -10,8 +10,6 @@
   box-sizing: border-box;
 
   margin: 51px 0 0 56px;
-
-  border: 1px solid red;
   text-align: start;
 }
 
@@ -23,7 +21,6 @@
 
 @media only screen and (max-width : 767px) {
   .author__info {
-    /* max-width: 336px; */
     margin: 24px 0 16px;
   }
 }

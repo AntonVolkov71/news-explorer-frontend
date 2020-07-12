@@ -1,5 +1,5 @@
 .news__image {
-  height: 272px;
+  min-height: 272px;
 
   box-sizing: border-box;
 
@@ -16,14 +16,15 @@
   margin: 0;
 }
 
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .news__image {
+    min-height: 159px;
+  }
+}
 
+@media only screen and (max-width : 767px) {
+  .news__image {
+    min-height: 196px;
+  }
+}
 
-/* .news__image::after {
-  content: '';
-  display: block;
-  width: 272px;
-  height: 272px;
-  background-color: rgba(0, 0, 0, .3);
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-} */

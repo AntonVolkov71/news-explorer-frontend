@@ -4,6 +4,7 @@
 @import url(./_del/news__tag_del.css);
 @import url(./_key/news__tag_key.css);
 @import url(./_title-del/news__tag_title-del.css);
+@import url(./_auth/news__tag_auth.css);
 
 .news__tag {
   display: inline-block;
@@ -29,3 +30,4 @@
   border-radius: 10px;
   outline: none;
 }
+

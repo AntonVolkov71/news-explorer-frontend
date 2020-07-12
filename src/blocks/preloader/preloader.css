@@ -5,8 +5,6 @@
   
   background: #F5F6F7;
   
-  overflow: hidden;
-  
   margin: 0;
   padding: 116px 0;
 
@@ -14,7 +12,6 @@
 
   box-sizing: border-box;
 
-  border: 1px solid red;
 }
 
 @media only screen and (min-width: 768px) and (max-width : 1023px) {

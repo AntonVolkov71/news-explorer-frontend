@@ -10,3 +10,19 @@
   
   color: #1A1B22;
 }
+
+
+@media only screen and (min-width: 768px) and (max-width : 1439px) {
+  .news__res-title {
+    font-size: 30px;
+    line-height: 40px;
+     
+  }
+}
+
+@media only screen and  (max-width : 767px) {
+  .news__res-title {
+    font-size: 30px;
+    line-height: 34px;
+  }
+}

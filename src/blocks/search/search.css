@@ -3,12 +3,7 @@
 @import url(./__form/search__form.css);
 @import url(./__button/search__button.css);
 @import url(./__input/search__input.css);
-
-.search__desc {
-
-  text-align: start;
-}
-
+@import url(./__desc/search__desc.css);
 
 .search {
   display: flex;
@@ -18,24 +13,26 @@
   
   max-width: 608px;
   
-  padding: 0;
-
-  border: 1px solid blue;
+  padding: 80px 0 0;
 
 }
 @media only screen and (min-width: 1024px) and (max-width : 1439px) {
   .search {
+    padding: 64px 0 0;
     max-width: 545px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width : 1023px) {
   .search {
+    padding: 38px 0 0;
+
     max-width: 385px;
   }
 }
 
 @media only screen and (max-width : 767px) {
   .search {
+    padding: 30px 0 0;
     width: 285px;
     
   }

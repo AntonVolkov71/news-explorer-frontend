@@ -1,9 +1,3 @@
 div .nav__link_clr-light {
   color:#fff;
 }
-
-/* @media only screen and (max-width : 767px) {
-  div .nav__link_clr-light {
-    display: none;
-  }
-} */

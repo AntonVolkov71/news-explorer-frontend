@@ -5,8 +5,10 @@
   font-size: 26px;
   line-height: 30px;
 
-  margin: 40px 0 16px;
+  margin: 40px auto 16px;
   padding: 0;
+
+
 
   color: #1A1B22;
 }
@@ -18,7 +20,7 @@
 }
 @media only screen and  (max-width : 320px) {
   .not-found__title {
-    margin: 16px 0;
+    margin: 16px auto;
     max-width: 288px;
   }
 }

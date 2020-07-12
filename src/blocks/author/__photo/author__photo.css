@@ -8,7 +8,6 @@
   background-position: 75% 25%;
   background-image: url('../../../images/green-developer.jpg');
   transition: ease-in-out 1s;
-  border: 1px solid red;
 }
 
 .author__photo:hover {

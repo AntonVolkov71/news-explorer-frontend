@@ -3,5 +3,16 @@
   margin:0;
   padding: 24px;
 
-  border: 1px solid green;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .news__about {
+    padding: 16px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .news__about {
+    padding: 16px;
+  }
 }
