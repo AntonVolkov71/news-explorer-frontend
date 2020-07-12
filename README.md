@@ -1,5 +1,5 @@
-## README AntonVolkov71-diplom_news-explorer-api
-#### Read laziness? follow the [link](ayavolk.ga) :link:
+## README AntonVolkov71-diplom_news-explorer-front
+
 
 Совсем скоро будет описание.....
 
