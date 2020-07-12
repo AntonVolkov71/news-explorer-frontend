@@ -1,0 +1,17 @@
+@media only screen and (max-width : 767px) {
+
+  div .nav__links {
+    position: absolute;
+
+    padding: 16px;
+
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

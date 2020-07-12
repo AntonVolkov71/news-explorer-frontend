@@ -1,21 +1,33 @@
-@import url(./__left-links/header__left_links.css);
-@import url(./__link/header__link.css);
-@import url(./__links/header__links.css);
-@import url(./__left-links/header__left_links.css);
-@import url(./__right-links/header__right_links.css);
-@import url(./_login/header_login.css);
-@import url(./__burger/header___burger.css);
-
+@import url(./_bg-main/header_bg-main.css);
+@import url(./_bg-saved/header_bg-saved.css);
 
 .header {
-  background: rgba(196, 196, 196, 0.01);
-  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  /* min-width: 100%; */
+  position: relative;
   width: 100%;
-  height: 80px;
+  box-sizing: border-box;
+
   padding: 0;
-  padding-top: 19px;
+  /* margin: 0 auto; */
+
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-family: roboto-regular;
+  justify-content: center; 
+  
+  font-family: roboto, sans-serif;
 }
+
+/* @media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .header__link {
+    margin-left: 16px;
+  }
+  .header__link:first-child {
+    margin-left: 0;
+  }
+}
+@media  all and (max-width : 767px) {
+  .header__link:not(:first-child){
+      display: none;
+  }
+} */

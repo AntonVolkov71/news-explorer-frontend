@@ -15,16 +15,16 @@
 }
 
 @font-face {
-  font-family: 'roboto-regular';
+  font-family: 'roboto';
   src: url("./fonts/roboto-regular.woff") format("woff2");
 }
 
 @font-face {
-  font-family: 'robotoslab-regular';
+  font-family: 'robotoslab';
   src: url("./fonts/robotoslab-regular.woff") format("woff2");
 }
 
 @font-face {
-  font-family: 'sourcesanspro-regular';
+  font-family: 'sourcesanspro';
   src: url("./fonts/sourcesanspro-regular.woff") format("woff2");
 }

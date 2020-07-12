@@ -1,9 +1,19 @@
 .root {
-    position: relative;
-    min-width: 320px;
-    max-width: 1440px;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
+  position: relative;
+
+  min-width: 320px;
+  max-width: 1440px;
+  height: auto;
+
+  box-sizing: border-box;
+  
+  text-align: center;
+
+  margin: 0 auto;
+  padding: 0;
+
+  background-color: black;
+
+
+  overflow: hidden;
 }

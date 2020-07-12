@@ -1,0 +1,19 @@
+@import url(./_nav-link/footer_nav-link.css);
+
+.footer {
+  /* width: 100%; */
+
+  box-sizing: border-box;
+
+
+  padding: 30 0;
+  margin:0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+
+  background-color: #fff;
+
+  border: 1px solid red;
+}

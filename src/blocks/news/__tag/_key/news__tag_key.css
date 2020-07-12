@@ -1,0 +1,4 @@
+.news__tag_key:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}

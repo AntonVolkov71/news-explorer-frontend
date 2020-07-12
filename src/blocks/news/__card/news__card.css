@@ -1,0 +1,27 @@
+.news__card {
+
+  width: 100%;
+
+  box-sizing: border-box;
+
+  border: 1px solid #000;
+  border-radius: 16px;
+  background-color: #fff;
+
+  margin: 0;
+  padding: 0;
+
+  
+    
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.news__card:nth-child(odd):hover {
+  transform: rotate(-2deg);
+}
+
+.news__card:nth-child(even):hover {
+  transform: rotate(2deg);
+}

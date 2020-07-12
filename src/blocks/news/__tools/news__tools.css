@@ -1,0 +1,11 @@
+.news__tools {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin:0;
+  padding: 24px 24px 0;
+
+ box-sizing: border-box;
+  border: 2px solid #fff;
+}

@@ -1,0 +1,29 @@
+@import url(./__title/not-found__title.css);
+@import url(./__mourn/not-found__mourn.css);
+@import url(./__image/not-found__image.css);
+
+.not-found {
+  text-align: center;
+
+  background-color: #F5F6F7;
+
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 80px 0;
+
+  border: 1px solid yellow;
+
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1023px) {
+  .not-found {
+    padding: 38px 0 48px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .not-found {
+    padding: 30px 0 32px;    
+  }
+}

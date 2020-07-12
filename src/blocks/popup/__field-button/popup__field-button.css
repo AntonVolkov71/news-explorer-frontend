@@ -1,0 +1,9 @@
+.popup__field-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: stretch;
+  align-items: center;
+
+  margin: 10px 0 0;
+
+}

@@ -8,7 +8,8 @@ const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
     entry: {
-        main: './src/index.js'
+        main: './src/index.js',
+        saved: './src/index.js',
     },
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -79,11 +80,21 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             inject: false,
+            template: './src/saved.html',
+            minify: {
+                collapseWhitespace: !isDev
+            },
+            filename: 'saved.html',
+            chunks: ['saved'],
+        }),
+        new HtmlWebpackPlugin({
+            inject: false,
             template: './src/index.html',
             minify: {
                 collapseWhitespace: !isDev
             },
-
+            chunks: ['main'],
+            filename: 'index.html'
         }),
         new MiniCssExtractPlugin({
             filename: 'style.[hash].css'

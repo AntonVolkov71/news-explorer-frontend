@@ -1,0 +1,6 @@
+div .button_hover-incr:hover {
+  transform: scale(1.1);
+}
+div .button_hover-incr:active {
+  transform: scale(1);
+}

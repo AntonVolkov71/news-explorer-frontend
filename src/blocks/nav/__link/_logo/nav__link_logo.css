@@ -1,0 +1,7 @@
+div .nav__link_logo {
+  font-weight: bold;
+  font-size: 20px;
+}
+div .nav__link_logo:hover {
+  font-size: 22px;
+}

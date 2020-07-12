@@ -1,0 +1,20 @@
+div .news__button-more {
+  border: none;
+  background-color: #fff;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  padding: 18px 84px;
+
+  color: #1A1B22;
+
+  align-self: center;
+}
+
+div .news__button-more:hover {
+  opacity: 0.9;
+}

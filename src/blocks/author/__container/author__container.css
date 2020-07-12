@@ -1,0 +1,28 @@
+.author__container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start; 
+
+  padding: 80px 0;
+  margin:0;
+
+  border: 1px solid blue;
+
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .author__container {
+    padding: 40px 0 72px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .author__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    padding: 18px 16px 32px; 
+
+    /* padding: 32px 16px 80px; */
+  }
+}

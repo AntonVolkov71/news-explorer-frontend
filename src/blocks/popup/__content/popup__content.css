@@ -1,0 +1,12 @@
+.popup__content {
+  width: 430px;
+  box-sizing: border-box;
+
+  background-color: #fff;
+  border-radius: 16px;
+
+  position: relative;
+
+  margin:0;
+  padding: 34px 36px;
+}

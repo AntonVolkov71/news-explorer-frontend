@@ -1,0 +1,16 @@
+.not-found__image {
+  width: 74px;
+  height: 74px;
+
+  box-sizing: border-box;
+
+  margin: 0;
+  padding: 0;
+}
+
+.not-found__image:hover {
+  /* transform: rotate(360deg); */
+  /* background-image: url(../../../images/not-found_v1.psd); */
+  /* content: url(../../../images/not-found_v1.psd); */
+  margin: 0 15% 0 auto;
+}

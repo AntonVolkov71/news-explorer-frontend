@@ -1,0 +1,33 @@
+
+@import url(./_hover-incr/button__hover-incr.css);
+
+.button {
+  display: inline-block;
+
+  box-sizing: border-box;
+  border-radius: 100px;
+  box-shadow: none;
+  
+  padding: 12px;
+  
+  background: none;
+
+  text-align: center;
+  text-decoration: none;
+  font-family: roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px; 
+
+  outline: none;
+}
+@media only screen and (max-width : 1024px) {
+  .button     {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
+
+
+
