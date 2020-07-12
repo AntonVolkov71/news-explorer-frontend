@@ -1,5 +1,7 @@
 ## README AntonVolkov71-diplom_news-explorer-front
+#### Read laziness? follow the [link](https://ayavolk.ga) :link:
 
+### [Ссылка gh-pages](https://antonvolkov71.github.io/news-explorer-frontend/)
 
 Совсем скоро будет описание.....
 
