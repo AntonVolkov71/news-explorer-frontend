@@ -1,5 +1,5 @@
 export class NewsApi {
-  constructor(url) {
+  constructor({ url, token, dateTo, dateFrom, pageSize }) {
     if (!!NewsApi.instance) {
       return MainApi.instance;
     }
@@ -7,18 +7,17 @@ export class NewsApi {
     NewsApi.instance = this;
 
     this.url = url;
+    this.token = token;
+    this.dateTo = dateTo;
+    this.dateFrom = dateFrom;
+    this.pageSize = pageSize;
 
     return this;
   }
 
   //Обработка успешного запроса и выкидыш если ошибка от сервера
   _handleResult(res) {
-    console.log('api', res)
-
-    console.log('api.totalResults', res.totalResults)
-    return res.json();
     if (res.ok) return res.json();
-
     return Promise.reject(res)
   }
 
@@ -27,32 +26,12 @@ export class NewsApi {
   }
 
   //получение новостей
-  getNews({ query, token, dateTo, dateFrom }) {
-
-    return fetch(`${this.url}&q=${query}&pageSize=100&to=${dateTo}&from=${dateFrom}&language=ru&sortBy=relevancy`, {
-      // return fetch( `${this.url}?q=${keyWord}&from=${this.from}&to=${this.to}&pageSize=${this.pageSize}`, {
+  getNews({query}) {
+    console.log(query)
+    return fetch(`${this.url}?q=${query}&apiKey=${this.token}&pageSize=${this.pageSize}&to=${this.dateTo}&from=${this.dateFrom}&language=ru&sortBy=relevancy`, {
       method: 'GET',
-      // headers: {
-    //     authorization: token,
-    //     //apiKey: '9f328fa718fd439faa9a9504f2d2b589',
-    //     // from: dateFrom,
-    //     // to: dateTo,
-    //     // pageSize: 100,
-    //     //country: 'us',
-    //     // language: 'ru'
-    //   },
-    //  options: {
-    //   q: query,
-    //  }
-        
-      
-
-
-      // }
-
     })
       .then(this._handleResult)
       .catch(this._handleError)
-
   }
 }

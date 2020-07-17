@@ -1,16 +1,14 @@
-// Form. Класс, отвечающий за логику работы формы. Методы:
-// setServerError — добавляет форме ошибку, пришедшую с сервера;
-// _validateInputElement — валидирует переданный в качестве аргумента инпут;
-// _validateForm — валидирует всю форму;
-// _clear — вспомогательный метод, очищает поля формы;
-// _getInfo — вспомогательный метод, возвращает данные формы.
 export class Form {
-  constructor(form, errorMessages) {
+  constructor(form, errorMessages = '') {
     this.form = form;
     this.errorMessages = errorMessages;
     this.buttonSubmit = this.form.button;
-    this._validateForm();
-    this.inputHandler();
+    
+    if(this.form.id !== 'form-search') {
+      this._validateForm();
+      this.inputHandler();
+    }
+    
   }
 
   //возвращает данные формы
@@ -18,8 +16,7 @@ export class Form {
     const valuesInput = {};
     const inputs = this.form
       .querySelectorAll('input')
-      .forEach(input => {
-
+      inputs.forEach(input => {
         return valuesInput[input.name] = input.value;
       });
     this._clear();
@@ -69,7 +66,11 @@ export class Form {
   //добавляет форме ошибку, пришедшую с сервера;
   setServerError(status) {
     const errorServer = this.buttonSubmit.previousElementSibling;
-    errorServer.textContent = this.errorMessages[`SERVER_ERR_${status}`];
+    if (this.errorMessages[`SERVER_ERR_${status}`]) {
+      errorServer.textContent = this.errorMessages[`SERVER_ERR_${status}`];
+    } else {
+      errorServer.textContent = `Ошибка: ${status}`;
+    }
   }
 }
 // const SERVER_ERR_409 = 'Такой пользователь уже есть';

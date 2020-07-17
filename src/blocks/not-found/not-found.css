@@ -1,6 +1,7 @@
 @import url(./__title/not-found__title.css);
 @import url(./__mourn/not-found__mourn.css);
 @import url(./__image/not-found__image.css);
+@import url(./_none/not-found_none.css);
 
 .not-found {
   display: flex;

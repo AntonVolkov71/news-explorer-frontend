@@ -15,7 +15,7 @@
 <body>
   <div class="root">
 
-    <header class="header header_bg-saved">
+    <header class="header header_bg-saved" id='header-saved'>
       <nav class="nav content-size">
         <div class="nav__left-links">
           <a href="/" class="nav__link nav__link_logo nav__link_clr-dark">NewsExplorer</a>
@@ -26,8 +26,7 @@
           <div class="nav__links nav_bg-light">
             <a href="/" class="nav__link nav__link_border-dark nav__link_clr-dark">Главная</a>
               <p class="nav__link nav__link_border-dark nav__link_saved-saved nav__link_clr-dark">Сохраненные статьи</p>
-            <button type="button" class="button button_hover-incr nav_button-out-saved nav__link_clr-dark">Юзер
-              нейм</button>
+            <button type="button" id="button-out-login" class="button button_hover-incr nav_button-out-saved nav__link_clr-dark"></button>
           </div>
 
 
@@ -46,18 +45,18 @@
 
     </header>
 
-    <section class="preloader">
+    <section class="preloader preloader_none">
       <i class="circle-preloader"></i>
       <h2 class="preloder__info">Идет поиск новостей...</h2>
     </section>
 
 
     <section class="news">
-      <div class="news__container content-size">
+      <div id="news-saved" class="news__container content-size news_none">
 
-        <h3 class="news__title">Результаты поиска</h3>
+    
 
-        <div class="news__cards">
+        <!-- <div class="news__cards">
           <div class="news__card">
 
             <div class="news__image">
@@ -109,7 +108,7 @@
           </div>
 
         </div>
-        <button type="button" class="button button_hover-incr news__button-more">Показать еще</button>
+        <button type="button" class="button button_hover-incr news__button-more">Показать еще</button> -->
       </div>
     </section>
 

@@ -14,7 +14,7 @@
 @import url(./__right/news__right.css);
 @import url(./__tag/news__tag.css);
 @import url(./_close/news_close.css);
-
+@import url(./_none/news_none.css);
 
 .news {
   width: 100%;

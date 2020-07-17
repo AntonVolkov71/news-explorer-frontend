@@ -1,10 +1,15 @@
 //мои помощнички 
 
-//успешный вход
-//TODO кнопка вход и ссылка Выполнить вход из попапа 
-const toEnter = (value) => {
-  console.log("сделать зареганный вход", value)
+
+//Изменить дату назад/вперед
+const getMetadataKeys = (dateNow, days) => {
+  const dateOffset = (24 * 60 * 60 * 1000) * days;
+  
+  let dateCorrect = dateNow;
+  dateNow.setTime(dateNow.getTime() + dateOffset);
+  dateCorrect = dateCorrect.toISOString();
+
+  return dateCorrect
 }
 
-
-  export { toEnter, nullInput, nullSubmit, errMessSubmit }
+export { getMetadataKeys }

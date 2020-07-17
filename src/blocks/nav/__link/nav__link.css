@@ -9,6 +9,7 @@
 @import url(./_social-gh/nav__link_social-gh.css);
 @import url(./_clr-dark/nav__link_clr-dark.css);
 @import url(./_clr-light/nav__link_clr-light.css);
+@import url(./_clr-nofish-nomeat/nav__link_clr-nofish-nomeat.css);
 
 .nav__link {
   text-decoration: none;

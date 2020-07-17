@@ -14,7 +14,7 @@
 
 <body>
   <div class="root">
-    <header class="header">
+    <header class="header" id='header-main'>
       <nav class="nav content-size">
         <div class="nav__left-links">
           <a href="/" class="nav__link nav__link_logo nav__link_clr-light">NewsExplorer</a>
@@ -27,10 +27,10 @@
               class="button button_hover-incr nav_button-auth nav__link_clr-light">Авторизироваться</button>
 
             <a href="./saved.html"
-              class="nav__link nav__link_saved-main nav__link_border-light nav__link_clr-light nav__link_none">Сохраненные
+              class="nav__link nav__link_saved-main nav__link_border-light nav__link_clr-nofish-nomeat nav__link_none">Сохраненные
               статьи</a>
 
-            <button type="button"
+            <button type="button" id="button-out-login"
               class="button button_hover-incr nav_button-out-main nav__link_clr-light nav__link_none"></button>
 
           </div>
@@ -46,19 +46,19 @@
 
         </div>
 
-        <form class="search__form" name="search-form">
-          <input class='search__input'  type="text" id="search" name="search" placeholder="Введите тему новости" required>
-          <button class='button search__button' type="submit">Искать</button>
+        <form class="search__form" name="search-form" id="form-search">
+          <input class='search__input' type="text" id="query" name="query" placeholder="Введите тему новости" required>
+          <button class='button search__button' name="button" type="submit">Искать</button>
         </form>
       </section>
     </header>
 
-    <section class="preloader">
+    <section class="preloader preloader_none">
       <i class="circle-preloader"></i>
       <h2 class="preloder__info">Идет поиск новостей...</h2>
     </section>
 
-    <section class="not-found">
+    <section class="not-found not-found_none">
       <img src="<%=require('./images/not-found.png').default%>" alt="даже картинка не загрузилась"
         class="not-found__image">
       <h3 class="not-found__title">Ничего не найдено</h3>
@@ -67,8 +67,8 @@
 
 
     <section class="news">
-      <div class="news__container content-size">
-
+      <div id="news-main" class="news__container content-size news_none">
+        <!-- 
         <h3 class="news__res-title">Результаты поиска</h3>
 
         <div class="news__cards">
@@ -94,9 +94,9 @@
               </p>
               <p class="news__source">Бабушки подъезда</p>
             </div>
-          </div>
+          </div> -->
 
-          <div class="news__card">
+        <!-- <div class="news__card">
 
             <div class="news__image">
               <div class="news__tools">
@@ -191,8 +191,8 @@
               <p class="news__source">Бабушки подъезда</p>
             </div>
           </div>
-        </div>
-        <button type="button" class="button button_hover-incr news__button-more">Показать еще</button>
+        </div> -->
+        <!-- <button type="button" class="button button_hover-incr news__button-more">Показать еще</button> -->
       </div>
 
     </section>
@@ -232,86 +232,83 @@
 
     <div class="overlay">
 
-    <div id="popup-auth" class="popup popup-auth popup_none">
-      <div class="popup__content">
-        <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
-        <h3 class="popup__title">Регистрация</h3>
-        
-        <form class="popup__form" name="auth">
-          <div class="popup__field">
-            <label class="popup__label" for="popup-auth_email">Email</label>
+      <div id="popup-auth" class="popup popup-auth popup_none">
+        <div class="popup__content">
+          <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
+          <h3 class="popup__title">Регистрация</h3>
+
+          <form class="popup__form" name="auth">
+            <div class="popup__field">
+              <label class="popup__label" for="popup-auth_email">Email</label>
               <input type="text" id="popup-auth_email" name="email" class="popup__input popup__input_email"
-              placeholder="Введите почту" value=''
-              pattern="^[\w.-]{2,}@[\w-]+\.[a-zA-Z.]{2,}$" required>
-            <span id="error-email-auth" class='popup__error-message'></span>
-          </div>
+                placeholder="Введите почту" value='' pattern="^[\w.-]{2,}@[\w-]+\.[a-zA-Z.]{2,}$" required>
+              <span id="error-email-auth" class='popup__error-message'></span>
+            </div>
 
-          <div class="popup__field">
-            <label class="popup__label" for="popup-auth_password">Пароль</label>
-            <input type="password" id="popup-auth_password" name="password" class="popup__input popup__input_password"
-              placeholder="Введите пароль" value='' minlength="8" required>
-            <span id="error-password-auth" class='popup__error-message'></span>
-          </div>
+            <div class="popup__field">
+              <label class="popup__label" for="popup-auth_password">Пароль</label>
+              <input type="password" id="popup-auth_password" name="password" class="popup__input popup__input_password"
+                placeholder="Введите пароль" value='' minlength="8" required>
+              <span id="error-password-auth" class='popup__error-message'></span>
+            </div>
 
-          <div class="popup__field">
-            <label class="popup__label" for="popup-auth_name">Имя</label>
-            <input type="text" id="popup-auth_name" name="name" class="popup__input popup__input_name"
-              placeholder="Введите свое имя" value='' minlength="2" maxlength="30" required>
-            <span id="error-name-auth" class='popup__error-message'></span>
-          </div>
+            <div class="popup__field">
+              <label class="popup__label" for="popup-auth_name">Имя</label>
+              <input type="text" id="popup-auth_name" name="name" class="popup__input popup__input_name"
+                placeholder="Введите свое имя" value='' minlength="2" maxlength="30" required>
+              <span id="error-name-auth" class='popup__error-message'></span>
+            </div>
 
-          <div class="popup__field-button">
-            <p id="error-exist" class='popup__error-message popup__error-message_submit'></p>
-            <button id="btn-signup" name="button" type="submit"
-              class="button popup__button">Зарегистрироваться</button>
-            <span class='popup__text'>или <p  class="popup__link popup__link_signin">Войти</p> </span>
+            <div class="popup__field-button">
+              <p id="error-exist" class='popup__error-message popup__error-message_submit'></p>
+              <button id="btn-signup" name="button" type="submit"
+                class="button popup__button">Зарегистрироваться</button>
+              <span class='popup__text'>или <p class="popup__link popup__link_signin">Войти</p> </span>
 
-          </div>
-        </form>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div id="popup-signin" class="popup popup-signin popup_none">
+        <div class="popup__content">
+          <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
+          <h3 class="popup__title">Вход</h3>
+          <form class="popup__form" name="signin">
+            <div class="popup__field">
+              <label class="popup__label" for="popup-signin_email">Email</label>
+              <input type="text" id="popup-signin_email" name="email" class="popup__input popup__input_email"
+                placeholder="Введите почту" value='' pattern="^[\w.-]{2,}@[\w-]+\.[a-zA-Z.]{2,}$" required>
+
+              <span id="error-email-signin" class='popup__error-message'></span>
+            </div>
+
+            <div class="popup__field">
+              <label class="popup__label" for="popup-signin_password">Пароль</label>
+              <input type="password" id="popup-signin_password" name="password"
+                class="popup__input popup__input_password" placeholder="Введите пароль" value='' minlength="8" required>
+              <span id="error-password-signin" class='popup__error-message'></span>
+            </div>
+
+            <div class="popup__field-button">
+              <p id="error-signin" class='popup__error-message popup__error-message_submit'></p>
+              <button id="btn-signin" name="button" type="submit" class="button popup__button">Войти</button>
+              <span class='popup__text'>или <p class="popup__link popup__link_auth">Зарегистрироваться</p>
+              </span>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <div id="popup-success" class="popup popup-success popup_none">
+        <div class="popup__content popup__content_align-left">
+          <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
+          <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+          <p class="popup__link popup__link_signin">Выполнить вход</p>
+        </div>
       </div>
     </div>
-
-    <div id="popup-signin" class="popup popup-signin popup_none">
-      <div class="popup__content">
-        <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
-        <h3 class="popup__title">Вход</h3>
-        <form class="popup__form" name="signin">
-          <div class="popup__field">
-            <label class="popup__label" for="popup-signin_email">Email</label>
-            <input type="text" id="popup-signin_email" name="email" class="popup__input popup__input_email"
-              placeholder="Введите почту" value=''
-              pattern="^[\w.-]{2,}@[\w-]+\.[a-zA-Z.]{2,}$" required>
-              
-            <span id="error-email-signin" class='popup__error-message'></span>
-          </div>
-
-          <div class="popup__field">
-            <label class="popup__label" for="popup-signin_password">Пароль</label>
-            <input type="password" id="popup-signin_password" name="password" class="popup__input popup__input_password"
-            placeholder="Введите пароль" value='' minlength="8" required>
-            <span id="error-password-signin" class='popup__error-message'></span>
-          </div>
-
-          <div class="popup__field-button">
-            <p id="error-signin" class='popup__error-message popup__error-message_submit'></p>
-            <button id="btn-signin" name="button" type="submit"
-              class="button popup__button">Войти</button>
-            <span class='popup__text'>или <p class="popup__link popup__link_auth">Зарегистрироваться</p>
-            </span>
-          </div>
-        </form>
-      </div>
-    </div>
-
-
-    <div id="popup-success" class="popup popup-success popup_none">
-      <div class="popup__content popup__content_align-left">
-        <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
-        <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-        <p class="popup__link popup__link_signin">Выполнить вход</p>
-      </div>
-    </div>
-  </div>
   </div>
   <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>

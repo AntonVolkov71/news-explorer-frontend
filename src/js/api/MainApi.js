@@ -51,6 +51,7 @@ export class MainApi {
 
   //получение инфы о пользователе
   getUserData(token) {
+
     return fetch(`${this.url}users/me`, {
 
       method: 'GET',
