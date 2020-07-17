@@ -1,11 +1,11 @@
 .nav__link_border-light:hover {
-  padding-bottom: 42px;
+  padding-bottom: 29px;
   border-bottom: 3px solid #fff;
 }
 
 @media only screen and (min-width: 768px) and (max-width : 1024px) {
   .nav__link_border-light:hover {
-    padding-bottom: 22px;
+    padding-bottom: 12px;
   }
 }
 @media only screen and (max-width : 767px) {
