@@ -51,9 +51,7 @@ export class MainApi {
 
   //получение инфы о пользователе
   getUserData(token) {
-
     return fetch(`${this.url}users/me`, {
-
       method: 'GET',
       headers: {
         authorization: `Bearer ${token}`,
@@ -62,6 +60,27 @@ export class MainApi {
     })
       .then(this._handleResult)
       .catch(this._handleError)
+  }
 
+  //добавление карточки
+  createArticle(data, token) {
+console.log(data)
+    return fetch(`${this.url}articles`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(data),
+    })
+      .then(this._handleResult)
+      .catch(this._handleError)
   }
 }
+// keyword": "i'm keyword",
+//     "title": "i'm title",
+//     "text": "i'm text text text",
+//     "date": "25 june 2020",
+//     "source": "BBC",
+//     "link": "https://ya.ru",
+//     "image": "http://ya.ru"

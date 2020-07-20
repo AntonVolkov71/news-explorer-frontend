@@ -27,7 +27,6 @@ export class NewsApi {
 
   //получение новостей
   getNews({query}) {
-    console.log(query)
     return fetch(`${this.url}?q=${query}&apiKey=${this.token}&pageSize=${this.pageSize}&to=${this.dateTo}&from=${this.dateFrom}&language=ru&sortBy=publishedAt`, {
       method: 'GET',
     })

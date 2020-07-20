@@ -1,5 +1,9 @@
-.news__about {
+div .news__about {
   
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   margin:0;
   padding: 24px;
 

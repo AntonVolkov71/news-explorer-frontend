@@ -1,18 +1,11 @@
-// Класс списка карточек новостей. Конструктор принимает массив карточек, которые должны быть в списке при первой отрисовке. Методы:
-
 import { setFormatDate } from "../utils/utils";
 
 
 // renderResults принимает массив экземпляров карточек и отрисовывает их;
-
 // renderLoader отвечает за отрисовку лоудера;
-
 // renderError принимает объект ошибки и показывает ошибку в интерфейсе;
-
 // showMore отвечает за функциональность кнопки «Показать ещё»;
-
 // addCard принимает экземпляр карточки и добавляет её в список.
-
 
 export class NewsCardList {
   constructor(container, preloader, notFound) {
@@ -38,14 +31,13 @@ export class NewsCardList {
     const image = tmplCard.querySelector('.news__image');
     image.style.backgroundImage = `url(${urlToImage})`;
 
-    image.onload = function() {
+    image.onload = function () {
       console.log(`Изображение загружено, размеры `);
     };
-    
-    image.onerror = function() {
+
+    image.onerror = function () {
       console.log("Ошибка во время загрузки изображения");
     };
-
 
     const newsDate = tmplCard.querySelector('.news__date');
     newsDate.textContent = setFormatDate(publishedAt);
@@ -70,16 +62,22 @@ export class NewsCardList {
 
     this.container.classList.remove('news_none');
 
-    if (this.container.id == 'news-main') {
-      this.createTitle();
-    }
 
-    //TODO фильтр о
-   const filterNews =  news.filter(news =>{
-      return 
+
+    //фильтр одинаковых карточек
+
+    const ids = []
+
+    const newCollection = news.filter(el => {
+      if (ids.includes(el.description)) {
+        return false;
+      }
+      ids.push(el.description);
+      return true;
     })
 
-    news.map(newCard => {
+    //отрисовка карточек
+    newCollection.forEach(newCard => {
       const { urlToImage, publishedAt, title, description, content, url } = newCard;
       const source = newCard.source.name
 
@@ -100,17 +98,16 @@ export class NewsCardList {
     this.cards.append(card)
   }
 
-  //отрисовка титульника результата поиска
-  createTitle() {
-    //TODO убарть или не надо ретерн
-    this.container.insertAdjacentHTML('afterbegin', '<h3 class="news__res-title">Результаты поиска</h3>');
-  }
-
   //Прослушка тыка карточки открытие новости
   newsCardHandler(card) {
     card.addEventListener('click', event => {
-      const urlCard = event.target.closest('.news__card').getAttribute('url')
-      window.open(urlCard, '_blank');
+      const urlCard = event.target.closest('.news__card').getAttribute('url');
+
+      //кроме иконнок
+      if (event.target.classList.contains('news__title')) {
+        window.open(urlCard, '_blank');
+      }
+
     })
   }
 

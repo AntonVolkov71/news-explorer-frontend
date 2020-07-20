@@ -19,7 +19,6 @@ export class Form {
       inputs.forEach(input => {
         return valuesInput[input.name] = input.value;
       });
-    this._clear();
     this._validateForm();
     return valuesInput;
   }
@@ -73,6 +72,3 @@ export class Form {
     }
   }
 }
-// const SERVER_ERR_409 = 'Такой пользователь уже есть';
-// const SERVER_ERR_401 = 'Неправильные логин или пароль';
-// const SERVER_ERR_400 = 'Корявый запрос, сударь';

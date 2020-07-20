@@ -8,6 +8,7 @@ import { NewsApi } from './api/NewsApi';
 import { getMetadataKeys } from './utils/utils';
 import { NewsCardList } from './components/NewsCardList'
 import { articles } from './DATA_NEWS'; //TODO удалить после отладки
+import { NewsCard } from './components/NewsCard';
 
 
 //Нам глобального не надо
@@ -17,6 +18,7 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
   const { urlMainApi, tokenMainApi, urlNewsApi, apiKeyNewsApi, dateNow, pageSize } = configs;
   const dateTo = dateNow.toISOString();
   const dateFrom = getMetadataKeys(dateNow, -7);
+  let flagLogin = false;
 
   //Элементы HTML
   const root = document.querySelector('.root');
@@ -36,13 +38,7 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
   const header = new Header(headerHTML, 'main');
   const newsApi = new NewsApi({ url: urlNewsApi, token: apiKeyNewsApi, dateTo, dateFrom, pageSize });
   const findForm = new Form(searchForm);
-
-
-  //отрисовка карточек
   const newsCardList = new NewsCardList(newsContainer, preloader, notFound);
-
-
-  //newsCardList.renderResults(articles)
 
 
 
@@ -50,19 +46,21 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
   if (tokenMainApi) {
     mainApi.getUserData(tokenMainApi)
       .then(data => {
-        header.render(true, data.data.name)
+        header.render(true, data.data.name);
+        flagLogin = true;
       })
       .catch(err => {
-        console.log('что-то с токеном')
-        header.render(false)
+        console.log('что-то с токеном');
+        header.render(false);
+        flagLogin = false;
       })
   };
 
-  //Поиск новостей
 
-  //TODO ошибка второго запроса
+  //Поиск новостей
   searchForm.addEventListener('submit', event => {
     event.preventDefault();
+
     const value = findForm.getInfo();
 
     //закрывать нотфаунд если в прошлый раз ничего не нашли
@@ -84,14 +82,25 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
         }
 
         //отсылаем результаты на создание карточек
-       newsCardList.renderResults(res.articles)
-       
+        newsCardList.renderResults(res.articles)
+
+        //Иконки на карточках
+        const iconCard = new NewsCard(newsContainer);
+
+        //Состояние иконок
+        iconCard.renderIcon(flagLogin)
+
+        //прослушка иконок отправка запроса
+        if (flagLogin) {
+          const iconsAdd = newsContainer.querySelectorAll('.news__tag_add');
+          iconAddHandler(iconsAdd)
+
+        }
 
       })
       .catch(err => {
         console.log('err', err)
       })
-
   })
 
   //Создание экземпляров попапов
@@ -102,8 +111,37 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
   })
 
 
-  //Проуслшки
+  //Проcлушки
 
+  // Прослушка иконки добавить карточку себе в сохраненные
+  function iconAddHandler(iconsAdd) {
+
+    iconsAdd.forEach(iconAdd => {
+      iconAdd.addEventListener('click', event => {
+        const card = event.target.closest('.news__card');
+        console.log(card.querySelector('.news__image').style.backgroundImage)
+
+        const data = {
+          keyword: findForm.getInfo().query,
+          title: card.querySelector('.news__title').textContent,
+          text: card.querySelector('.news__text').textContent,
+          date: card.querySelector('.news__date').textContent,
+          source: card.querySelector('.news__source').textContent,
+          link: card.getAttribute('url'),
+          image: card.querySelector('.news__image').style.backgroundImage.slice(5, -2)
+        };
+        const token = localStorage.getItem('token');
+        mainApi.createArticle(data, token)
+        .then(data=>{
+          console.log('succes')
+        })
+        .catch(err=>{
+          console.log('err')
+        })
+        // console.log(event.target.closest('.news__card'))
+      })
+    })
+  }
   //Слухаем кнопку авторизация
   btnAuth.addEventListener('click', event => {
 
@@ -153,7 +191,7 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
     form.addEventListener('submit', (event) => {
       event.preventDefault();
 
-      const valuesForm = formEntity._getInfo()
+      const valuesForm = formEntity.getInfo()
 
       //Запрос на регистрацию
       if (event.target.getAttribute('name') === 'auth') {
@@ -169,6 +207,7 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
             formEntity.setServerError(err.message);
           })
       } else if (event.target.getAttribute('name') === 'signin') {
+        //Запрос на аутентификацию  
 
         mainApi.signin(valuesForm)
           .then(res => {
@@ -179,9 +218,14 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
               .then((res) => {
                 localStorage.setItem('name', res.data.name);
                 header.render(true, res.data.name);
+
+                flagLogin = true;
+
                 popup.close();
                 popup.clearContent();
               })
+
+
           })
           .catch(err => {
             formEntity.setServerError(err.message);
@@ -194,7 +238,9 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
   //Прослушка кнопки выхода из аутентификации
   btnOutLogin.addEventListener('click', event => {
     header.render(false);
+    flagLogin = false;
     localStorage.clear();
+    window.location.reload();
   })
 
   //Запрос на регистрацию
@@ -208,7 +254,6 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
         popupsNew[event.target.className.slice(24)].open()
       })
   }
-
 })()
 
 

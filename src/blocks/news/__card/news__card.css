@@ -11,9 +11,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 
-  cursor: pointer;
 }
 
 .news__card:nth-child(odd):hover {
