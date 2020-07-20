@@ -23,47 +23,22 @@ export class NewsCardList {
   }
 
   //шаблон карточки
-  card(){//{ urlToImage, publishedAt, title, description, url, source }) {
-    // console.log('object')
-    // const card =
-    //   ` 
-    //` <template id="tmpl">
+  card({ urlToImage, publishedAt, title, content, url, source }) {
 
-    let elem = document.createElement('div'); 
-    
-    elem.innerHTML +=  <div class="news__card">
+    let tmplCard = tmplcard.content.cloneNode(true)
 
-      <div class="news__image">
-        <div class="news__tools">
+    const image = tmplCard.querySelector('.news__image');
+    image.style.backgroundImage = `url(${urlToImage})`;
 
-          <div class="news__left"></div>
+    const newsDate = tmplCard.querySelector('.news__date');
+    newsDate.textContent = `${publishedAt}`
 
-          <div class="news__right">
-            <button class="news__tag news__tag_auth new__tag_none">Войдите, чтобы сохранять статьи</button>
-            <button class="news__tag news__tag_add news__tag_add_mark"></button>
-          </div>
-        </div>
-      </div>
+    const newsTitle = tmplCard.querySelector('.news__title');
+    newsTitle.textContent = `${title}`;
 
-      <div class="news__about">
-        <p class="news__date">8 сентября 1380</p>
-        <h4 class="news__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-        <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-        система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-</p>
-        <p class="news__source">Бабушки подъезда</p>
-      </div>
-    </div>
-
-
-    // </template>`
-
-
-    // let elem = document.createElement('div');
-
-    // elem.append(tmpl.content.cloneNode(true));
-
-    return elem
+    const newsText = tmplCard.querySelector('.news__tex');
+    // newsText.textContent = `${content}`;
+    console.log(typeof content)
   }
   //отрисовка карточек
   renderResults(news) {
@@ -73,16 +48,16 @@ export class NewsCardList {
     if (this.container.id == 'news-main') {
       this.createTitle();
     }
-
+    // this.card()
     //обработка массива новостей
     news.map(newCard => {
-      //console.log(newCard)
-      // const { urlToImage, publishedAt, title, description, url } = newCard;
-      // const source = newCard.source.name
-      
-      console.log(this.card())
-      // this.card({ urlToImage, publishedAt, title, description, url, source })
-      // this.addCard(this.card({ urlToImage, publishedAt, title, description, url, source }))
+      const { urlToImage, publishedAt, title, content, url } = newCard;
+      const source = newCard.source.name
+  //console.log(newCard)
+      // console.log(urlToImage, publishedAt, title, description, url )
+      this.card({ urlToImage, publishedAt, title, content, url, source })
+      // this.cards.appendChild(tmplcard.content.cloneNode(true))
+      //this.addCard(this.card({ urlToImage, publishedAt, title, description, url, source }))
     })
     this.showMore(news.length)
   }
@@ -95,14 +70,14 @@ export class NewsCardList {
   }
   //принимает экземпляр карточки и добавляет её в список.
   addCard(card) {
-    this.cards.append(card)
+    //this.cards.append(card)
   }
 
 
   //отрисовка титульника результата поиска
   createTitle() {
     //TODO убарть или не надо ретерн
-     this.container.insertAdjacentHTML('afterbegin', '<h3 class="news__res-title">Результаты поиска</h3>');
+    this.container.insertAdjacentHTML('afterbegin', '<h3 class="news__res-title">Результаты поиска</h3>');
 
   }
 

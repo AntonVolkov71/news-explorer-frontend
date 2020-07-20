@@ -78,9 +78,6 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
         //отсылаем результаты на создание карточек
 
 
-
-
-
         preloader.classList.add('preloader_none');
         //TODO если новостей ноль то->
         if (res.totalResults === 0) {
