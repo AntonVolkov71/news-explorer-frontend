@@ -29,8 +29,23 @@ export class NewsCardList {
 
     let tmplCard = tmplcard.content.cloneNode(true)
 
+    const newsCard = tmplCard.querySelector('.news__card');
+    newsCard.setAttribute('url', url)
+
+    //прослушка на клик 
+    this.newsCardHandler(newsCard);
+
     const image = tmplCard.querySelector('.news__image');
     image.style.backgroundImage = `url(${urlToImage})`;
+
+    image.onload = function() {
+      console.log(`Изображение загружено, размеры `);
+    };
+    
+    image.onerror = function() {
+      console.log("Ошибка во время загрузки изображения");
+    };
+
 
     const newsDate = tmplCard.querySelector('.news__date');
     newsDate.textContent = setFormatDate(publishedAt);
@@ -41,15 +56,14 @@ export class NewsCardList {
     const newsText = tmplCard.querySelector('.news__text');
     if (description === null) {
       newsText.textContent = `${content}`;
-      // console.log('==null')
     } else {
-      // console.log('else')
-// console.log(content)
       newsText.textContent = `${description}`;
     }
 
-    // console.log(newsText)
+    const newsSource = tmplCard.querySelector('.news__source');
+    newsSource.textContent = `${source}`;
 
+    return tmplCard
   }
   //отрисовка карточек
   renderResults(news) {
@@ -59,18 +73,20 @@ export class NewsCardList {
     if (this.container.id == 'news-main') {
       this.createTitle();
     }
-    // this.card()
-    //обработка массива новостей
+
+    //TODO фильтр о
+   const filterNews =  news.filter(news =>{
+      return 
+    })
+
     news.map(newCard => {
       const { urlToImage, publishedAt, title, description, content, url } = newCard;
       const source = newCard.source.name
-      //console.log(newCard)
-      // console.log(urlToImage, publishedAt, title, description, url )
-      this.card({ urlToImage, publishedAt, title, content, url, source })
-      // this.cards.appendChild(tmplcard.content.cloneNode(true))
-      //this.addCard(this.card({ urlToImage, publishedAt, title, description, url, source }))
-    })
-    this.showMore(news.length)
+
+      this.addCard(this.card({ urlToImage, publishedAt, title, description, content, url, source }));
+    });
+
+    this.showMore(news.length);
   }
 
   //TODO добавить кнопку еелси ннадо
@@ -81,21 +97,24 @@ export class NewsCardList {
   }
   //принимает экземпляр карточки и добавляет её в список.
   addCard(card) {
-    //this.cards.append(card)
+    this.cards.append(card)
   }
-
 
   //отрисовка титульника результата поиска
   createTitle() {
     //TODO убарть или не надо ретерн
     this.container.insertAdjacentHTML('afterbegin', '<h3 class="news__res-title">Результаты поиска</h3>');
-
   }
 
-
+  //Прослушка тыка карточки открытие новости
+  newsCardHandler(card) {
+    card.addEventListener('click', event => {
+      const urlCard = event.target.closest('.news__card').getAttribute('url')
+      window.open(urlCard, '_blank');
+    })
+  }
 
   //добавить контейнер к секции
-
 
   //TODO сделать лоудер отсюда
   //за отрисовку лоудера;

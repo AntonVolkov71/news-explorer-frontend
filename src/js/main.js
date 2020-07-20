@@ -38,14 +38,14 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
   const findForm = new Form(searchForm);
 
 
-//отрисовка карточек
+  //отрисовка карточек
   const newsCardList = new NewsCardList(newsContainer, preloader, notFound);
-  
-  
-  newsCardList.renderResults(articles)
-  
-  
-  
+
+
+  //newsCardList.renderResults(articles)
+
+
+
   //проверка на регистрацию при начальной загрузки
   if (tokenMainApi) {
     mainApi.getUserData(tokenMainApi)
@@ -67,24 +67,25 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
 
     //закрывать нотфаунд если в прошлый раз ничего не нашли
     if (!notFound.classList.contains('not-found_none')) {
-      notFound.classList.add('not-fo  und_none')
+      notFound.classList.add('not-found_none')
     }
 
+    //запуск прелоадера
     preloader.classList.remove('preloader_none');
 
+    //сам запрос на поиск новостей
     newsApi.getNews(value)
       .then(res => {
-
-        //отсылаем результаты на создание карточек
-
 
         preloader.classList.add('preloader_none');
         //TODO если новостей ноль то->
         if (res.totalResults === 0) {
           return notFound.classList.remove('not-found_none');
-
         }
-        console.log(res, 'res')
+
+        //отсылаем результаты на создание карточек
+       newsCardList.renderResults(res.articles)
+       
 
       })
       .catch(err => {
