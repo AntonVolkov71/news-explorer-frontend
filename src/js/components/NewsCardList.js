@@ -1,5 +1,7 @@
 // Класс списка карточек новостей. Конструктор принимает массив карточек, которые должны быть в списке при первой отрисовке. Методы:
 
+import { setFormatDate } from "../utils/utils";
+
 
 // renderResults принимает массив экземпляров карточек и отрисовывает их;
 
@@ -23,7 +25,7 @@ export class NewsCardList {
   }
 
   //шаблон карточки
-  card({ urlToImage, publishedAt, title, content, url, source }) {
+  card({ urlToImage, publishedAt, title, description, content, url, source }) {
 
     let tmplCard = tmplcard.content.cloneNode(true)
 
@@ -31,14 +33,23 @@ export class NewsCardList {
     image.style.backgroundImage = `url(${urlToImage})`;
 
     const newsDate = tmplCard.querySelector('.news__date');
-    newsDate.textContent = `${publishedAt}`
+    newsDate.textContent = setFormatDate(publishedAt);
 
     const newsTitle = tmplCard.querySelector('.news__title');
     newsTitle.textContent = `${title}`;
 
-    const newsText = tmplCard.querySelector('.news__tex');
-    // newsText.textContent = `${content}`;
-    console.log(typeof content)
+    const newsText = tmplCard.querySelector('.news__text');
+    if (description === null) {
+      newsText.textContent = `${content}`;
+      // console.log('==null')
+    } else {
+      // console.log('else')
+// console.log(content)
+      newsText.textContent = `${description}`;
+    }
+
+    // console.log(newsText)
+
   }
   //отрисовка карточек
   renderResults(news) {
@@ -51,9 +62,9 @@ export class NewsCardList {
     // this.card()
     //обработка массива новостей
     news.map(newCard => {
-      const { urlToImage, publishedAt, title, content, url } = newCard;
+      const { urlToImage, publishedAt, title, description, content, url } = newCard;
       const source = newCard.source.name
-  //console.log(newCard)
+      //console.log(newCard)
       // console.log(urlToImage, publishedAt, title, description, url )
       this.card({ urlToImage, publishedAt, title, content, url, source })
       // this.cards.appendChild(tmplcard.content.cloneNode(true))

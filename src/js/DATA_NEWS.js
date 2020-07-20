@@ -6,11 +6,11 @@ const articles = [
     },
     "author": "Sead Fadilpašić",
     "title": "ProtonVPN review",
-    "description": "Top tier provider dedicated to superior security and transparency.",
+    "description": null,
     "url": "https://www.itproportal.com/reviews/protonvpn-review/",
     "urlToImage": "https://cdn.mos.cms.futurecdn.net/maPZNx4i2cezZnM9pNBSXd-1200-80.jpg",
     "publishedAt": "2020-07-17T15:09:16Z",
-    "content": "ProtonVPN\r\n is a Switzerland-based VPN provider whose name may sound familiar if youve had the chance to encounter another popular product made by its creators - an end-to-end encrypted email platfor… [+6070 chars]"
+    "content": "теперь контент"
   },
   {
     "source": {
@@ -23,7 +23,7 @@ const articles = [
     "url": "https://theweek.com/speedreads/926115/twitter-says-bitcoin-hackers-only-posted-small-subset-accounts-targeted",
     "urlToImage": "https://images.theweek.com/sites/default/files/styles/tw_image_6_4/public/gettyimages-1154915188_0.jpg?itok=mg_Rqm2N",
     "publishedAt": "2020-07-17T14:53:24Z",
-    "content": "Among the heap of \"troubling pandemic news,\" Stephen Colbert said on Thursday's Late Show, \"yesterday we learned that Russian hackers have launched cyberattacks on COVID-19 research centers. So the R… [+2247 chars]"
+    "content": "здесь не должен быть контент"
   },
   {
     "source": {

@@ -63,7 +63,7 @@ import { articles } from './DATA_NEWS'; //TODO удалить после отл�
   //TODO ошибка второго запроса
   searchForm.addEventListener('submit', event => {
     event.preventDefault();
-    const value = findForm._getInfo();
+    const value = findForm.getInfo();
 
     //закрывать нотфаунд если в прошлый раз ничего не нашли
     if (!notFound.classList.contains('not-found_none')) {

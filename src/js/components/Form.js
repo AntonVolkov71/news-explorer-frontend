@@ -12,7 +12,7 @@ export class Form {
   }
 
   //возвращает данные формы
-  _getInfo() {
+  getInfo() {
     const valuesInput = {};
     const inputs = this.form
       .querySelectorAll('input')
