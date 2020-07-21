@@ -39,7 +39,6 @@ import { NewsCard } from './components/NewsCard';
   const newsApi = new NewsApi({ url: urlNewsApi, token: apiKeyNewsApi, dateTo, dateFrom, pageSize });
   const findForm = new Form(searchForm);
   const newsCardList = new NewsCardList(newsContainer, preloader, notFound);
-  //Иконки на карточках
   const iconCard = new NewsCard(newsContainer);
 
 
@@ -225,8 +224,8 @@ import { NewsCard } from './components/NewsCard';
                 header.render(true, res.data.name);
 
                 flagLogin = true;
-                
-                //статус иконок тоже меняем, если был поиск новостей
+
+                //статус иконок меняем, если был поиск новостей
                 iconCard.renderIcon(flagLogin);
 
                 popup.close();

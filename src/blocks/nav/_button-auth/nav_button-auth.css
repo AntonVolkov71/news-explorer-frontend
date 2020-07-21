@@ -4,6 +4,9 @@
 
   margin-left: 32px;
 }
+.nav_button-auth:hover {
+  border-color: #B6BCBF;
+}
 
 @media only screen and (min-width: 768px) and (max-width : 1024px) {
   .nav_button-auth    {

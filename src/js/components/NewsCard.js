@@ -14,52 +14,45 @@ export class NewsCard {
     icons.forEach(tag => {
       if (isLogin) {
         tag.classList.add('news__tag_add_states');
-        this.iconLogHandler(icons);
+        this.iconLogHandler(tag);
       } else {
-
-        this.iconNoLogHandler(icons);
+        this.iconNoLogHandler(tag);
       }
     })
   }
 
   //прослушки иконки если не залоган, вылетает сообщение
-  iconNoLogHandler(icons) {
-    icons.forEach(tag => {
-
-      tag.addEventListener('mouseover', event => {
-        event.target.previousElementSibling.classList.remove('new__tag_none')
-      })
-
-      tag.addEventListener('mouseout', event => {
-        event.target.previousElementSibling.classList.add('new__tag_none')
-      })
+  iconNoLogHandler(tag) {
+    tag.addEventListener('mouseover', event => {
+      event.target.previousElementSibling.classList.remove('new__tag_none')
+    })
+    tag.addEventListener('mouseout', event => {
+      event.target.previousElementSibling.classList.add('new__tag_none')
     })
   }
+
   //Прослушка если залоган, отрисовка маркера
-  iconLogHandler(icons) {
+  iconLogHandler(tag  ) {
+    //отключить ховер при залогане
+    tag.addEventListener('mouseover', event => {
+      tag.previousElementSibling.classList.add('new__tag_none')
+    });
+    // console.log(tag)
+    //можно сохранить один раз
+    tag.addEventListener('click', event => {
+      // console.log(event.target)
+      //показать что успешно
+      tag.previousElementSibling.textContent = 'Сохранение успешно';
+      tag.previousElementSibling.classList.remove('new__tag_none');
+      setTimeout(() => {
+        tag.previousElementSibling.classList.add('new__tag_none');
+      }, 1000);
 
-    icons.forEach(tag => {
-
-      //отключить ховер при залогане
-      tag.addEventListener('mouseover', event => {
-        tag.previousElementSibling.classList.add('new__tag_none')
-      });
-
-      //можно сохранить один раз
-      tag.addEventListener('click', event => {
-        
-        //показать что успешно
-        tag.previousElementSibling.textContent = 'Сохранение успешно';
-        tag.previousElementSibling.classList.remove('new__tag_none');
-        setTimeout(() => {
-          tag.previousElementSibling.classList.add('new__tag_none');
-        }, 1000);
-
-        //маркировать
-        event.target.classList.remove('news__tag_add_states');
-        event.target.classList.add('news__tag_add_mark');
-        event.target.disabled = true;
-      })
+      //маркировать
+      event.target.classList.remove('news__tag_add_states');
+      event.target.classList.add('news__tag_add_mark');
+      event.target.disabled = true;
     })
+
   }
 }

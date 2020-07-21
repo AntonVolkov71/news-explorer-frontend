@@ -12,8 +12,8 @@ export class NewsCardList {
     this.container = container;
     this.notFound = notFound;
     this.preloader = preloader;
-    this.cards = container.querySelector('.news__cards');
-    this.buttonMore = container.querySelector('.button');
+    this.cards = this.container.querySelector('.news__cards');
+    this.buttonMore = this.container.querySelector('.button');
 
   }
 
@@ -31,6 +31,7 @@ export class NewsCardList {
     const image = tmplCard.querySelector('.news__image');
     image.style.backgroundImage = `url(${urlToImage})`;
 
+    //TODO картинка по умолчанию если не грузится
     image.onload = function () {
       console.log(`Изображение загружено, размеры `);
     };
@@ -57,27 +58,17 @@ export class NewsCardList {
 
     return tmplCard
   }
+
   //отрисовка карточек
   renderResults(news) {
 
     this.container.classList.remove('news_none');
 
-
-
     //фильтр одинаковых карточек
-
-    const ids = []
-
-    const newCollection = news.filter(el => {
-      if (ids.includes(el.description)) {
-        return false;
-      }
-      ids.push(el.description);
-      return true;
-    })
+    const dublicateNon = this.filterDublicate(news)
 
     //отрисовка карточек
-    newCollection.forEach(newCard => {
+    dublicateNon.forEach(newCard => {
       const { urlToImage, publishedAt, title, description, content, url } = newCard;
       const source = newCard.source.name
 
@@ -86,6 +77,20 @@ export class NewsCardList {
 
     this.showMore(news.length);
   }
+
+  //Фильтр дубликатов результатов поиска
+  filterDublicate(news) {
+    const ids = [];
+
+    return news.filter(el => {
+      if (ids.includes(el.description)) {
+        return false;
+      }
+      ids.push(el.description);
+      return true;
+    })
+  }
+
 
   //TODO добавить кнопку еелси ннадо
   showMore(length) {

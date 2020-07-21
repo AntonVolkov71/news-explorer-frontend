@@ -1,17 +1,17 @@
-.nav__link_border-dark:hover {
+.nav__link_border-dark {
 
   padding-bottom: 44px;
   border-bottom: 3px solid #1A1B22;
 }
 
 @media only screen and (min-width: 768px) and (max-width : 1024px) {
-  .nav__link_border-dark:hover {
+  .nav__link_border-dark {
    
     padding-bottom: 24px;
   }
 }
 @media only screen and (max-width : 767px) {
-  .nav__link_border-dark:hover {
+  .nav__link_border-dark {
     padding:0;
     border: none;
   }
