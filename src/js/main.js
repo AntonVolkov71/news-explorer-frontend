@@ -83,7 +83,10 @@ import { NewsCard } from './components/NewsCard';
         }
 
         //отсылаем результаты на создание карточек
-        newsCardList.renderResults(res.articles)
+        console.log(articles)
+        newsCardList.renderResults(articles)
+
+       // newsCardList.renderResults(res.articles)
 
 
         //Состояние иконок

@@ -64,40 +64,57 @@ export class NewsCardList {
 
     this.container.classList.remove('news_none');
 
-    //фильтр одинаковых карточек
-    const dublicateNon = this.filterDublicate(news)
+    this.news = news;
+    let newsSlice;
+    console.log(this.news.length)
+    if (news.length >= 3) {
 
-    //отрисовка карточек
-    dublicateNon.forEach(newCard => {
-      const { urlToImage, publishedAt, title, description, content, url } = newCard;
-      const source = newCard.source.name
+      newsSlice = this.news.splice(0, 3);
+      newsSlice.forEach(newCard => {
+        const { urlToImage, publishedAt, title, description, content, url } = newCard;
+        const source = newCard.source.name
 
-      this.addCard(this.card({ urlToImage, publishedAt, title, description, content, url, source }));
-    });
+        this.addCard(this.card({ urlToImage, publishedAt, title, description, content, url, source }));
+      });
+      this.showMore(news)
+    } else {
+      console.log(this.news)
+      newsSlice = this.news
+      newsSlice.forEach(newCard => {
 
-    this.showMore(news.length);
-  }
+        const { urlToImage, publishedAt, title, description, content, url } = newCard;
+        const source = newCard.source.name
 
-  //Фильтр дубликатов результатов поиска
-  filterDublicate(news) {
-    const ids = [];
+        this.addCard(this.card({ urlToImage, publishedAt, title, description, content, url, source }));
+        this.buttonMore.classList.add('news_close');
+      });
 
-    return news.filter(el => {
-      if (ids.includes(el.description)) {
-        return false;
-      }
-      ids.push(el.description);
-      return true;
-    })
+    }
+
+    //отрисовка карточек, но только 3 штучки
+    //.slice(3, news.length-1));
   }
 
 
   //TODO добавить кнопку еелси ннадо
-  showMore(length) {
-    if (length > 6) {
-      this.container.append(this.buttonMore)
-    }
+  showMore(news) {
+    console.log(news.length, 'на кнопке')
+    // if (news.length > 2) {
+    console.log('tri')
+    this.container.append(this.buttonMore);
+    this.buttonMore.addEventListener('click', event => {
+      //event.stopPropagation()
+      event.stopImmediatePropagation()
+      this.renderResults(news);
+    })
+    // } else {
+    //   console.log('dve i mense')
+    //   this.buttonMore.classList.add('news_close');
+    //   this.news = ''
+    // }
+
   }
+
   //принимает экземпляр карточки и добавляет её в список.
   addCard(card) {
     this.cards.append(card)
