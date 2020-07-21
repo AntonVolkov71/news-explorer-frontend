@@ -1,8 +1,0 @@
-div .button_hover-incr:hover {
-  transition: transform 0.7s;
-  transform: scale(1.1);
-}
-div .button_hover-incr:active {
-  
-  transform: scale(1);
-}

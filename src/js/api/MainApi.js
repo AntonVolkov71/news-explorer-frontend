@@ -77,10 +77,3 @@ console.log(data)
       .catch(this._handleError)
   }
 }
-// keyword": "i'm keyword",
-//     "title": "i'm title",
-//     "text": "i'm text text text",
-//     "date": "25 june 2020",
-//     "source": "BBC",
-//     "link": "https://ya.ru",
-//     "image": "http://ya.ru"

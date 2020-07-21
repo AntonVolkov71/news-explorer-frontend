@@ -39,10 +39,12 @@ import { NewsCard } from './components/NewsCard';
   const newsApi = new NewsApi({ url: urlNewsApi, token: apiKeyNewsApi, dateTo, dateFrom, pageSize });
   const findForm = new Form(searchForm);
   const newsCardList = new NewsCardList(newsContainer, preloader, notFound);
+  //Иконки на карточках
+  const iconCard = new NewsCard(newsContainer);
 
 
 
-  //проверка на регистрацию при начальной загрузки
+  //проверка на аутентификацию при начальной загрузки
   if (tokenMainApi) {
     mainApi.getUserData(tokenMainApi)
       .then(data => {
@@ -84,8 +86,6 @@ import { NewsCard } from './components/NewsCard';
         //отсылаем результаты на создание карточек
         newsCardList.renderResults(res.articles)
 
-        //Иконки на карточках
-        const iconCard = new NewsCard(newsContainer);
 
         //Состояние иконок
         iconCard.renderIcon(flagLogin)
@@ -94,7 +94,6 @@ import { NewsCard } from './components/NewsCard';
         if (flagLogin) {
           const iconsAdd = newsContainer.querySelectorAll('.news__tag_add');
           iconAddHandler(iconsAdd)
-
         }
 
       })
@@ -118,30 +117,36 @@ import { NewsCard } from './components/NewsCard';
 
     iconsAdd.forEach(iconAdd => {
       iconAdd.addEventListener('click', event => {
-        const card = event.target.closest('.news__card');
-        console.log(card.querySelector('.news__image').style.backgroundImage)
 
-        const data = {
-          keyword: findForm.getInfo().query,
-          title: card.querySelector('.news__title').textContent,
-          text: card.querySelector('.news__text').textContent,
-          date: card.querySelector('.news__date').textContent,
-          source: card.querySelector('.news__source').textContent,
-          link: card.getAttribute('url'),
-          image: card.querySelector('.news__image').style.backgroundImage.slice(5, -2)
-        };
+        const data = getDataToSaved(event);
         const token = localStorage.getItem('token');
         mainApi.createArticle(data, token)
-        .then(data=>{
-          console.log('succes')
-        })
-        .catch(err=>{
-          console.log('err')
-        })
-        // console.log(event.target.closest('.news__card'))
+          .then(data => {
+            console.log('succes')
+          })
+          .catch(err => {
+            console.log('err')
+          })
       })
     })
   }
+  //Получение значений для отправки карточки карточки
+  function getDataToSaved() {
+    const card = event.target.closest('.news__card');
+
+    return {
+      keyword: findForm.getInfo().query,
+      title: card.querySelector('.news__title').textContent,
+      text: card.querySelector('.news__text').textContent,
+      date: card.querySelector('.news__date').textContent,
+      source: card.querySelector('.news__source').textContent,
+      link: card.getAttribute('url'),
+      image: card.querySelector('.news__image').style.backgroundImage.slice(5, -2)
+    };
+
+  }
+
+
   //Слухаем кнопку авторизация
   btnAuth.addEventListener('click', event => {
 
@@ -207,8 +212,8 @@ import { NewsCard } from './components/NewsCard';
             formEntity.setServerError(err.message);
           })
       } else if (event.target.getAttribute('name') === 'signin') {
-        //Запрос на аутентификацию  
 
+        //Запрос на аутентификацию  
         mainApi.signin(valuesForm)
           .then(res => {
 
@@ -220,6 +225,9 @@ import { NewsCard } from './components/NewsCard';
                 header.render(true, res.data.name);
 
                 flagLogin = true;
+                
+                //статус иконок тоже меняем, если был поиск новостей
+                iconCard.renderIcon(flagLogin);
 
                 popup.close();
                 popup.clearContent();

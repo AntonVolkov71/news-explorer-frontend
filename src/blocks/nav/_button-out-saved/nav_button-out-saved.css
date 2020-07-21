@@ -6,6 +6,10 @@
   margin-left: 32px;
 }
 
+.nav_button-out-saved:hover {
+  border-color: #B6BCBF;
+}
+
 .nav_button-out-saved:after {
   content: "";
   display: inline-block;

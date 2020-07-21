@@ -1,0 +1,7 @@
+div .news__tag_add_states:hover::after {
+  background-image: url(../../../../../images/add-hover.png);
+}
+
+div .news__tag_add_states:active {
+  transform: scale(0.8);
+}

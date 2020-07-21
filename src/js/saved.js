@@ -39,8 +39,8 @@ import { NewsCardList } from './components/NewsCardList';
     })
 
   //отрисовка карточек
-  const newsCardList = new NewsCardList(newsContainer, preloader, notFound);
-  newsCardList.renderResults()
+  // const newsCardList = new NewsCardList(newsContainer, preloader, notFound);
+  // newsCardList.renderResults()
 
 
 

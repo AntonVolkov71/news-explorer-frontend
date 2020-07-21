@@ -1,5 +1,5 @@
 
-@import url(./_hover-incr/button__hover-incr.css);
+@import url(./_states/button_states.css);
 
 .button {
   display: inline-block;
@@ -20,7 +20,6 @@
   font-size: 18px;
   line-height: 24px; 
 
-    transition:  0.7s;
   outline: none;
 }
 .button:hover {
