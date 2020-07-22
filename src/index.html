@@ -26,8 +26,7 @@
             <button id="btn-auth" type="button"
               class="button button_states nav_button-auth nav__link_clr-light">Авторизироваться</button>
 
-            <a href="./saved.html"
-              class="nav__link nav__link_saved-main nav__link_clr-light nav__link_none">Сохраненные
+            <a href="./saved.html" class="nav__link nav__link_saved-main nav__link_clr-light nav__link_none">Сохраненные
               статьи</a>
 
             <button type="button" id="button-out-login"
@@ -58,148 +57,26 @@
       <h2 class="preloder__info">Идет поиск новостей...</h2>
     </section>
 
-    <section class="not-found not-found_none">
-      <img src="<%=require('./images/not-found.png').default%>" alt="даже картинка не загрузилась"
-        class="not-found__image">
-      <h3 class="not-found__title">Ничего не найдено</h3>
-      <p class="not-found__mourn">К сожалению по вашему запросу ничего не найдено.</p>
-    </section>
+    
 
 
     <section class="news">
+      <section class="not-found not-found_none">
+        <img src="<%=require('./images/not-found.png').default%>" alt="даже картинка не загрузилась"
+          class="not-found__image">
+        <h3 class="not-found__title">Ничего не найдено</h3>
+        <p class="not-found__mourn">К сожалению по вашему запросу ничего не найдено.</p>
+      </section>
       <div id="news-main" class="news__container content-size news_none">
 
         <h3 class="news__res-title">Результаты поиска</h3>
 
         <div class="news__cards">
 
-          <template id='tmplcard'>
-
-            <div class="news__card">
-
-              <div class="news__image">
-                <div class="news__tools">
-
-                  <div class="news__left"></div>
-
-                  <div class="news__right">
-                    <span class="news__tag news__tag_auth new__tag_none">Войдите, чтобы сохранять статьи</span>
-                    <button class="news__tag news__tag_add"></button>
-                  </div>
-                </div>
-              </div>
-
-              <div class="news__about">
-                <p class="news__date"></p>
-                <h4 class="news__title"></h4>
-                <p class="news__text"></p>
-                <p class="news__source"></p>
-              </div>
-
-          </template>
 
         </div>
 
-
-
-
-        <!-- <div class="news__card">
-
-            <div class="news__image">
-              <div class="news__tools">
-
-                <div class="news__left"></div>
-
-                <div class="news__right">
-                  <button class="news__tag news__tag_auth">Войдите, чтобы сохранять статьи</button>
-                  <button class="news__tag news__tag_add new__tag_none"></button>
-                </div>
-              </div>
-            </div>
-
-            <div class="news__about">
-              <p class="news__date">8 сентября 1380</p>
-              <h4 class="news__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-              <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="news__source">Бабушки подъезда</p>
-            </div>
-          </div>
-
-          <div class="news__card">
-
-            <div class="news__image">
-              <div class="news__tools">
-
-                <div class="news__left"></div>
-
-                <div class="news__right">
-                  <button class="news__tag news__tag_auth new__tag_none">Войдите, чтобы сохранять статьи</button>
-                  <button class="news__tag news__tag_add"></button>
-                </div>
-              </div>
-            </div>
-
-            <div class="news__about">
-              <p class="news__date">8 сентября 1380</p>
-              <h4 class="news__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-              <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="news__source">Бабушки подъезда</p>
-            </div>
-          </div>
-
-          <div class="news__card">
-
-            <div class="news__image">
-              <div class="news__tools">
-
-                <div class="news__left"></div>
-
-                <div class="news__right">
-                  <button class="news__tag news__tag_auth new__tag_none">Войдите, чтобы сохранять статьи</button>
-                  <button class="news__tag news__tag_add"></button>
-                </div>
-              </div>
-            </div>
-
-            <div class="news__about">
-              <p class="news__date">8 сентября 1380</p>
-              <h4 class="news__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-              <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="news__source">Бабушки подъезда</p>
-            </div>
-          </div>
-
-          <div class="news__card">
-
-            <div class="news__image">
-              <div class="news__tools">
-
-                <div class="news__left"></div>
-
-                <div class="news__right">
-                  <button class="news__tag news__tag_auth new__tag_none">Войдите, чтобы сохранять статьи</button>
-                  <button class="news__tag news__tag_add"></button>
-                </div>
-              </div>
-            </div>
-
-            <div class="news__about">
-              <p class="news__date">8 сентября 1380</p>
-              <h4 class="news__title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h4>
-              <p class="news__text">В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться
-                система национальных парков – охраняемых территорий, где и сегодня каждый может приобщиться к природе.
-              </p>
-              <p class="news__source">Бабушки подъезда</p>
-            </div>
-          </div>
-        </div> -->
-        <button type="button" class="button button_hover-incr news__button-more">Показать еще</button>
+        <button type="button" class="button button_hover-incr news__button-more news_close">Показать еще</button>
       </div>
 
     </section>
@@ -317,6 +194,30 @@
       </div>
     </div>
   </div>
+  <template id='tmplcard'>
+
+    <div class="news__card">
+
+      <div class="news__image">
+        <div class="news__tools">
+
+          <div class="news__left"></div>
+
+          <div class="news__right">
+            <span class="news__tag news__tag_auth new__tag_none">Войдите, чтобы сохранять статьи</span>
+            <button class="news__tag news__tag_add"></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="news__about">
+        <p class="news__date"></p>
+        <h4 class="news__title"></h4>
+        <p class="news__text"></p>
+        <p class="news__source"></p>
+      </div>
+  </template>
+
   <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
 </body>
 

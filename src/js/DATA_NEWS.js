@@ -90,32 +90,32 @@ const articles = [
     "publishedAt": "2020-07-17T14:40:00Z",
     "content": "The recent hack on Twitter leaves security researchers and others worried about the credibility of the platform, especially during the upcoming US presidential election and how a hack like this, if t… [+2127 chars]"
   },
-  {
-    "source": {
-      "id": null,
-      "name": "Ehackingnews.com"
-    },
-    "author": "Saumya Singh",
-    "title": "Recent Twitter hacks raises security concerns and discredits the platform's credibility",
-    "description": "The hijacked accounts tweeted to double the money sent to them via Bitcoin. By wednesday evening 400 transfers were made and transaction worth $120,000 occured.",
-    "url": "https://www.ehackingnews.com/2020/07/recent-twitter-hacks-raises-security.html",
-    "urlToImage": "https://1.bp.blogspot.com/-o4zsHeP2Pr8/XxG3Cvx-f5I/AAAAAAAAAyo/_efVyApH31ISdB4tWHGK5G_VC3g3tbd-gCLcBGAsYHQ/w1200-h630-p-k-no-nu/social-media-1795578_1280.webp",
-    "publishedAt": "2020-07-17T14:40:00Z",
-    "content": "The recent hack on Twitter leaves security researchers and others worried about the credibility of the platform, especially during the upcoming US presidential election and how a hack like this, if t… [+2127 chars]"
-  },
-  {
-    "source": {
-      "id": null,
-      "name": "Ehackingnews.com"
-    },
-    "author": "Saumya Singh",
-    "title": "Recent Twitter hacks raises security concerns and discredits the platform's credibility",
-    "description": "The hijacked accounts tweeted to double the money sent to them via Bitcoin. By wednesday evening 400 transfers were made and transaction worth $120,000 occured.",
-    "url": "https://www.ehackingnews.com/2020/07/recent-twitter-hacks-raises-security.html",
-    "urlToImage": "https://1.bp.blogspot.com/-o4zsHeP2Pr8/XxG3Cvx-f5I/AAAAAAAAAyo/_efVyApH31ISdB4tWHGK5G_VC3g3tbd-gCLcBGAsYHQ/w1200-h630-p-k-no-nu/social-media-1795578_1280.webp",
-    "publishedAt": "2020-07-17T14:40:00Z",
-    "content": "The recent hack on Twitter leaves security researchers and others worried about the credibility of the platform, especially during the upcoming US presidential election and how a hack like this, if t… [+2127 chars]"
-  },
+  // {
+  //   "source": {
+  //     "id": null,
+  //     "name": "Ehackingnews.com"
+  //   },
+  //   "author": "Saumya Singh",
+  //   "title": "Recent Twitter hacks raises security concerns and discredits the platform's credibility",
+  //   "description": "The hijacked accounts tweeted to double the money sent to them via Bitcoin. By wednesday evening 400 transfers were made and transaction worth $120,000 occured.",
+  //   "url": "https://www.ehackingnews.com/2020/07/recent-twitter-hacks-raises-security.html",
+  //   "urlToImage": "https://1.bp.blogspot.com/-o4zsHeP2Pr8/XxG3Cvx-f5I/AAAAAAAAAyo/_efVyApH31ISdB4tWHGK5G_VC3g3tbd-gCLcBGAsYHQ/w1200-h630-p-k-no-nu/social-media-1795578_1280.webp",
+  //   "publishedAt": "2020-07-17T14:40:00Z",
+  //   "content": "The recent hack on Twitter leaves security researchers and others worried about the credibility of the platform, especially during the upcoming US presidential election and how a hack like this, if t… [+2127 chars]"
+  // },
+  // {
+  //   "source": {
+  //     "id": null,
+  //     "name": "Ehackingnews.com"
+  //   },
+  //   "author": "Saumya Singh",
+  //   "title": "Recent Twitter hacks raises security concerns and discredits the platform's credibility",
+  //   "description": "The hijacked accounts tweeted to double the money sent to them via Bitcoin. By wednesday evening 400 transfers were made and transaction worth $120,000 occured.",
+  //   "url": "https://www.ehackingnews.com/2020/07/recent-twitter-hacks-raises-security.html",
+  //   "urlToImage": "https://1.bp.blogspot.com/-o4zsHeP2Pr8/XxG3Cvx-f5I/AAAAAAAAAyo/_efVyApH31ISdB4tWHGK5G_VC3g3tbd-gCLcBGAsYHQ/w1200-h630-p-k-no-nu/social-media-1795578_1280.webp",
+  //   "publishedAt": "2020-07-17T14:40:00Z",
+  //   "content": "The recent hack on Twitter leaves security researchers and others worried about the credibility of the platform, especially during the upcoming US presidential election and how a hack like this, if t… [+2127 chars]"
+  // },
 
 
 

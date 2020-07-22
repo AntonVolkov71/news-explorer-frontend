@@ -32,6 +32,8 @@ import { NewsCard } from './components/NewsCard';
   const preloader = root.querySelector('.preloader');
   const notFound = root.querySelector('.not-found');
   const newsContainer = root.querySelector('.news__container');
+  const buttonMore = newsContainer.querySelector('button');
+  const title = newsContainer.querySelector('.news__res-title');
 
   //Сууущности
   const mainApi = new MainApi(urlMainApi);
@@ -64,34 +66,47 @@ import { NewsCard } from './components/NewsCard';
 
     const value = findForm.getInfo();
 
+    //стереть старый поиск
+    const cards = newsContainer.querySelectorAll('.news__card');
+    const newsCards = newsContainer.querySelector('.news__cards');
+
+
+    //убрать от предыдущего поиска кнопку и тайтл, карточки
+    if (cards.length > 0) {
+      closeButtonTitle();
+      newsCards.innerHTML = '';
+    }
+
     //закрывать нотфаунд если в прошлый раз ничего не нашли
     if (!notFound.classList.contains('not-found_none')) {
       notFound.classList.add('not-found_none')
     }
 
     //запуск прелоадера
-    preloader.classList.remove('preloader_none');
+    newsCardList.renderLoader();
+    //preloader.classList.remove('preloader_none');
 
     //сам запрос на поиск новостей
     newsApi.getNews(value)
       .then(res => {
 
-        preloader.classList.add('preloader_none');
+        //показать тайтл и кнопку
+        showButtonTitle();
+
+        //preloader
+        newsCardList.renderLoader();
+
         //TODO если новостей ноль то->
         if (res.totalResults === 0) {
+          closeButtonTitle()
           return notFound.classList.remove('not-found_none');
         }
 
         //отсылаем результаты на создание карточек
-        console.log(articles)
-        newsCardList.renderResults(articles)
-
-       // newsCardList.renderResults(res.articles)
-
+        newsCardList.renderResults(res.articles)
 
         //Состояние иконок
-        iconCard.renderIcon(flagLogin)
-
+        iconCard.renderIcon(flagLogin);
         //прослушка иконок отправка запроса
         if (flagLogin) {
           const iconsAdd = newsContainer.querySelectorAll('.news__tag_add');
@@ -103,6 +118,19 @@ import { NewsCard } from './components/NewsCard';
         console.log('err', err)
       })
   })
+
+  //Убрать показать татйл и кнопку 
+  function showButtonTitle() {
+    buttonMore.classList.remove('news_close');
+    title.classList.remove('news_close');
+  }
+  function closeButtonTitle() {
+    console.log('object')
+    buttonMore.classList.add('news_close');
+    title.classList.add('news_close');
+    
+  }
+
 
   //Создание экземпляров попапов
   popups.forEach(popup => {

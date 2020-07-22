@@ -61,58 +61,39 @@ export class NewsCardList {
 
   //отрисовка карточек
   renderResults(news) {
-
     this.container.classList.remove('news_none');
 
-    this.news = news;
     let newsSlice;
-    console.log(this.news.length)
-    if (news.length >= 3) {
 
-      newsSlice = this.news.splice(0, 3);
+    this.news = news;
+    //Логика отрисовки карточек  и вставки кнопки
+    if (news.length > 3) {
+      newsSlice = news.splice(0, 3);
       newsSlice.forEach(newCard => {
         const { urlToImage, publishedAt, title, description, content, url } = newCard;
         const source = newCard.source.name
-
         this.addCard(this.card({ urlToImage, publishedAt, title, description, content, url, source }));
       });
-      this.showMore(news)
+      this.showMore()
     } else {
-      console.log(this.news)
-      newsSlice = this.news
+      newsSlice = news;
       newsSlice.forEach(newCard => {
-
         const { urlToImage, publishedAt, title, description, content, url } = newCard;
         const source = newCard.source.name
 
         this.addCard(this.card({ urlToImage, publishedAt, title, description, content, url, source }));
         this.buttonMore.classList.add('news_close');
       });
-
     }
-
-    //отрисовка карточек, но только 3 штучки
-    //.slice(3, news.length-1));
   }
 
-
-  //TODO добавить кнопку еелси ннадо
-  showMore(news) {
-    console.log(news.length, 'на кнопке')
-    // if (news.length > 2) {
-    console.log('tri')
-    this.container.append(this.buttonMore);
+  //Кнопка есче
+  showMore() {
+    this.buttonMore.classList.remove('news_close');
     this.buttonMore.addEventListener('click', event => {
-      //event.stopPropagation()
-      event.stopImmediatePropagation()
-      this.renderResults(news);
+      event.stopImmediatePropagation();
+      this.renderResults(this.news);
     })
-    // } else {
-    //   console.log('dve i mense')
-    //   this.buttonMore.classList.add('news_close');
-    //   this.news = ''
-    // }
-
   }
 
   //принимает экземпляр карточки и добавляет её в список.
@@ -124,22 +105,21 @@ export class NewsCardList {
   newsCardHandler(card) {
     card.addEventListener('click', event => {
       const urlCard = event.target.closest('.news__card').getAttribute('url');
-
       //кроме иконнок
       if (event.target.classList.contains('news__title')) {
         window.open(urlCard, '_blank');
       }
-
     })
   }
-
-  //добавить контейнер к секции
 
   //TODO сделать лоудер отсюда
   //за отрисовку лоудера;
   renderLoader() {
+    this.preloader.classList.toggle('preloader_none')
+  }
+  //TODO сделат not-found
+  renderNotFound() {
 
   }
-
 
 }
