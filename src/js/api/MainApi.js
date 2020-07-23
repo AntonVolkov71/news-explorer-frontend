@@ -48,7 +48,6 @@ export class MainApi {
       .catch(this._handleError)
   }
 
-
   //получение инфы о пользователе
   getUserData(token) {
     return fetch(`${this.url}users/me`, {
@@ -64,7 +63,6 @@ export class MainApi {
 
   //добавление карточки
   createArticle(data, token) {
-console.log(data)
     return fetch(`${this.url}articles`, {
       method: 'POST',
       headers: {
@@ -76,4 +74,18 @@ console.log(data)
       .then(this._handleResult)
       .catch(this._handleError)
   }
+
+  //получение карточек
+  getArticles(token) {
+    return fetch(`${this.url}articles`, {
+      method: 'GET',
+      headers: {
+        authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(this._handleResult)
+      .catch(this._handleError)
+  }
+
 }

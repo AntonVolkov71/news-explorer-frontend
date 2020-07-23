@@ -7,10 +7,10 @@
   border: none;
 }
 .nav__menu-burger:hover {
-  transform: scale(1.5);
+  color:#B6BCBF;
 }
 .nav__menu-burger:active {
-  transform: scale(1);
+  transform: scale(0.8);
 }
 
 .nav__menu-burger:after {
@@ -21,6 +21,7 @@
   margin: 0;
   vertical-align: middle;
 }
+
 
 @media only screen and (min-width: 768px)  {
   div .nav__menu-burger {

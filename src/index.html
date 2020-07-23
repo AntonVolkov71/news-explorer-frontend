@@ -19,8 +19,10 @@
         <div class="nav__left-links">
           <a href="/" class="nav__link nav__link_logo nav__link_clr-light">NewsExplorer</a>
         </div>
+        
+
         <div class="nav__right-links">
-          <button class=" button nav__menu-burger nav__menu-burger_close-light"></button>
+          <button class=" button nav__menu-burger nav__menu-burger_light"></button>
           <div class="nav__links nav_none">
             <a href="/" class="nav__link nav__link_border-light nav__link_clr-light">Главная</a>
             <button id="btn-auth" type="button"
@@ -33,11 +35,14 @@
               class="button button_states nav_button-out-main nav__link_clr-light nav__link_none"></button>
 
           </div>
+
         </div>
       </nav>
+      
+
 
       <span class="line line_for-dark"></span>
-
+      <div class="overlay"></div>
       <section class='search content-size'>
         <div class="search__desc">
           <h2 class='search__title'>Что твориться в мире?</h2>
@@ -52,36 +57,27 @@
       </section>
     </header>
 
-    <section class="preloader preloader_none">
-      <i class="circle-preloader"></i>
-      <h2 class="preloder__info">Идет поиск новостей...</h2>
-    </section>
+    <section class="news news_none">
 
-    
+      <div class="preloader preloader_none">
+        <i class="circle-preloader"></i>
+        <h2 class="preloder__info">Идет поиск новостей...</h2>
+      </div>
 
-
-    <section class="news">
-      <section class="not-found not-found_none">
+      <div class="not-found not-found_none">
         <img src="<%=require('./images/not-found.png').default%>" alt="даже картинка не загрузилась"
           class="not-found__image">
         <h3 class="not-found__title">Ничего не найдено</h3>
         <p class="not-found__mourn">К сожалению по вашему запросу ничего не найдено.</p>
-      </section>
+      </div>
+
       <div id="news-main" class="news__container content-size news_none">
-
         <h3 class="news__res-title">Результаты поиска</h3>
-
-        <div class="news__cards">
-
-
-        </div>
-
+        <div class="news__cards"></div>
         <button type="button" class="button button_hover-incr news__button-more news_close">Показать еще</button>
       </div>
 
     </section>
-
-
 
     <section class="author">
       <div class="author__container content-size">
@@ -113,8 +109,6 @@
         </div>
       </nav>
     </footer>
-
-    <div class="overlay">
 
       <div id="popup-auth" class="popup popup-auth popup_none">
         <div class="popup__content">
@@ -192,8 +186,8 @@
           <p class="popup__link popup__link_signin">Выполнить вход</p>
         </div>
       </div>
-    </div>
   </div>
+
   <template id='tmplcard'>
 
     <div class="news__card">
@@ -211,9 +205,12 @@
       </div>
 
       <div class="news__about">
-        <p class="news__date"></p>
-        <h4 class="news__title"></h4>
-        <p class="news__text"></p>
+        <div class="news__top-container">
+          <p class="news__date"></p>
+          <h4 class="news__title"></h4>
+          <p class="news__text"></p>
+        </div>
+
         <p class="news__source"></p>
       </div>
   </template>

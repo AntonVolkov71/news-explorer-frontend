@@ -12,6 +12,10 @@
 
   cursor: pointer;
 
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  max-height: 90px;
 }
 
 .news__title:hover {
@@ -23,6 +27,8 @@
     margin: 10px 0;
     font-size: 22px;
     line-height: 24px;
+    max-height: 72px;
+
     }
 }
 
@@ -31,5 +37,7 @@
     margin: 10px 0;
     font-size: 22px;
     line-height: 24px;
+    max-height: 72px;
+
   }
 }

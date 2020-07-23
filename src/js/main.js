@@ -31,16 +31,19 @@ import { NewsCard } from './components/NewsCard';
   const searchForm = document.forms['search-form'];
   const preloader = root.querySelector('.preloader');
   const notFound = root.querySelector('.not-found');
+  const news = root.querySelector('.news');
   const newsContainer = root.querySelector('.news__container');
   const buttonMore = newsContainer.querySelector('button');
   const title = newsContainer.querySelector('.news__res-title');
+  const burger = root.querySelector('.nav__menu-burger');
+  const navLinks = root.querySelector('.nav__links');
 
   //Сууущности
   const mainApi = new MainApi(urlMainApi);
   const header = new Header(headerHTML, 'main');
   const newsApi = new NewsApi({ url: urlNewsApi, token: apiKeyNewsApi, dateTo, dateFrom, pageSize });
-  const findForm = new Form(searchForm);
-  const newsCardList = new NewsCardList(newsContainer, preloader, notFound);
+  const findForm = new Form(searchForm, errorMessages);
+  const newsCardList = new NewsCardList(news, newsContainer, preloader, notFound);
   const iconCard = new NewsCard(newsContainer);
 
 
@@ -73,14 +76,21 @@ import { NewsCard } from './components/NewsCard';
 
     //убрать от предыдущего поиска кнопку и тайтл, карточки
     if (cards.length > 0) {
+      //закрыть блок с карточками
+      newsCardList.сloseContainer();
+
       closeButtonTitle();
       newsCards.innerHTML = '';
     }
 
     //закрывать нотфаунд если в прошлый раз ничего не нашли
     if (!notFound.classList.contains('not-found_none')) {
-      notFound.classList.add('not-found_none')
+
+      notFound.classList.add('not-found_none');
     }
+
+    //открыть блок новостей
+    newsCardList.openNewsBlock();
 
     //запуск прелоадера
     newsCardList.renderLoader();
@@ -125,22 +135,27 @@ import { NewsCard } from './components/NewsCard';
     title.classList.remove('news_close');
   }
   function closeButtonTitle() {
-    console.log('object')
     buttonMore.classList.add('news_close');
     title.classList.add('news_close');
-    
   }
-
 
   //Создание экземпляров попапов
   popups.forEach(popup => {
-    const popupNew = popupsNew[popup.id.slice(6)] = new Popup(popup, overlay);
+    const popupNew = popupsNew[popup.id.slice(6)] = new Popup(popup);
     popupHandler(popupNew);
     popupNew.popup.querySelector('form') && controlForms(popupNew);
   })
 
-
   //Проcлушки
+
+  //клик на бургер
+  burger.addEventListener('click', event =>{
+    event.target.classList.toggle('nav__menu-burger_light')
+    event.target.classList.toggle('nav__menu-burger_close-light')
+    navLinks.classList.toggle('nav_none');
+    // overlay.classList.add('overlay_is-opened')
+ 
+  })
 
   // Прослушка иконки добавить карточку себе в сохраненные
   function iconAddHandler(iconsAdd) {
@@ -179,7 +194,6 @@ import { NewsCard } from './components/NewsCard';
 
   //Слухаем кнопку авторизация
   btnAuth.addEventListener('click', event => {
-
     //Октрытие попа авторизации
     popupsNew[event.target.id.slice(4)].open();
     popupsNew[event.target.id.slice(4)].clearContent();
@@ -192,21 +206,25 @@ import { NewsCard } from './components/NewsCard';
     closePopupHandler(popup);
   }
 
-  //Закрытие попапа кликом и эскейпом
+  //Закрытие попапа 
   function closePopupHandler(popup) {
     const closerPopup = popup.popup.querySelector('.popup__close')
-
-    closerPopup.addEventListener('click', event => {
-      popup.close()
-      popup.clearContent()
-    })
-
+    // кликом
+    popup.popup.addEventListener('click', event => {
+      const besidePopup = event.target.classList.contains('popup');
+      const closerPopup = event.target.classList.contains('popup__close');
+      if (besidePopup || closerPopup) {
+        popup.close();
+        popup.clearContent();
+      };
+    });
+    // эскейпом
     document.addEventListener('keyup', event => {
       event.preventDefault();
       if (event.code === 'Escape') {
-        popup.close()
-        popup.clearContent()
-      }
+        popup.close();
+        popup.clearContent();
+      };
     })
   }
 

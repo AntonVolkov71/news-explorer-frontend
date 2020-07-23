@@ -1,6 +1,6 @@
 .news__container {
   margin:0;
-  padding: 80px 0;
+  padding: 0;
 
   
   display: flex;
@@ -19,6 +19,6 @@
 
 @media only screen and (max-width : 767px) {
   .news__container {
-    padding: 32px 0;
+    padding: 16px 0;
   }
 }

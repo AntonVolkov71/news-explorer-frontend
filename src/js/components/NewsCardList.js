@@ -8,13 +8,13 @@ import { setFormatDate } from "../utils/utils";
 // addCard принимает экземпляр карточки и добавляет её в список.
 
 export class NewsCardList {
-  constructor(container, preloader, notFound) {
+  constructor(newsBlock, container, preloader, notFound) {
+    this.newsBlock = newsBlock;
     this.container = container;
     this.notFound = notFound;
     this.preloader = preloader;
     this.cards = this.container.querySelector('.news__cards');
     this.buttonMore = this.container.querySelector('.button');
-
   }
 
   //шаблон карточки
@@ -30,15 +30,6 @@ export class NewsCardList {
 
     const image = tmplCard.querySelector('.news__image');
     image.style.backgroundImage = `url(${urlToImage})`;
-
-    //TODO картинка по умолчанию если не грузится
-    image.onload = function () {
-      console.log(`Изображение загружено, размеры `);
-    };
-
-    image.onerror = function () {
-      console.log("Ошибка во время загрузки изображения");
-    };
 
     const newsDate = tmplCard.querySelector('.news__date');
     newsDate.textContent = setFormatDate(publishedAt);
@@ -98,7 +89,7 @@ export class NewsCardList {
 
   //принимает экземпляр карточки и добавляет её в список.
   addCard(card) {
-    this.cards.append(card)
+    this.cards.append(card);
   }
 
   //Прослушка тыка карточки открытие новости
@@ -122,4 +113,14 @@ export class NewsCardList {
 
   }
 
+
+  //открыть блок новостей
+  openNewsBlock() {
+    this.newsBlock.classList.remove('news_none');
+  }
+
+  //закрыть контейнер с карточками
+  сloseContainer() {
+    this.container.classList.add('news_none')
+  }
 }

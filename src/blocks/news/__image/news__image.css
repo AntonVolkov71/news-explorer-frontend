@@ -6,28 +6,26 @@
   background-image: url(../../../images/card-image-example.png);
   background-size:  cover;
   background-repeat: no-repeat;
-  /* background-position: 0 0; */
+  background-position: 0 0; 
 
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 
   position: relative;
 
-  /* padding: 0; */
+  padding: 0;
   margin: 0;
 }
 
-
-
 @media only screen and (min-width: 768px) and (max-width : 1024px) {
   .news__image {
-    min-height: 159px;
+    height: 159px;
   }
 }
 
 @media only screen and (max-width : 767px) {
   .news__image {
-    min-height: 196px;
+    height: 196px;
   }
 }
 

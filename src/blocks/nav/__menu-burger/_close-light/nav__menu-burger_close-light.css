@@ -1,3 +1,9 @@
-div .nav__menu-burger_close-light {
+div .nav__menu-burger_close-light:after {
   background-image: url(../../../../images/close.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+div .nav__menu-burger_close-light:hover:after {
+  background-image: url(../../../../images/close-hover.png);
 }
