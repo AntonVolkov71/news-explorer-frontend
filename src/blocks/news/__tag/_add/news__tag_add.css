@@ -2,6 +2,7 @@
 
 div .news__tag_add {
   padding: 0;
+  cursor: pointer;
 }
 
 .news__tag_add::after {
@@ -17,6 +18,8 @@ div .news__tag_add {
   background-image: url(../../../../images/add-norm.png);
   background-position: center;
   background-size: cover;
+
+  
 }
 
 

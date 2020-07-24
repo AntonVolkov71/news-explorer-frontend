@@ -19,6 +19,7 @@
   border:none;
   outline: none;
 
+  text-transform: lowercase;
 }
 
 .search__input:hover {

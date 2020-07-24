@@ -43,8 +43,8 @@ import { NewsCard } from './components/NewsCard';
   const header = new Header(headerHTML, 'main');
   const newsApi = new NewsApi({ url: urlNewsApi, token: apiKeyNewsApi, dateTo, dateFrom, pageSize });
   const findForm = new Form(searchForm, errorMessages);
-  const newsCardList = new NewsCardList(news, newsContainer, preloader, notFound);
   const iconCard = new NewsCard(newsContainer);
+  const newsCardList = new NewsCardList(news, newsContainer, preloader, iconCard);
 
 
 
@@ -85,9 +85,8 @@ import { NewsCard } from './components/NewsCard';
 
     //закрывать нотфаунд если в прошлый раз ничего не нашли
     if (!notFound.classList.contains('not-found_none')) {
-
       notFound.classList.add('not-found_none');
-    }
+    };
 
     //открыть блок новостей
     newsCardList.openNewsBlock();
@@ -108,7 +107,7 @@ import { NewsCard } from './components/NewsCard';
 
         //TODO если новостей ноль то->
         if (res.totalResults === 0) {
-          closeButtonTitle()
+          closeButtonTitle(); 
           return notFound.classList.remove('not-found_none');
         }
 
@@ -116,16 +115,16 @@ import { NewsCard } from './components/NewsCard';
         newsCardList.renderResults(res.articles)
 
         //Состояние иконок
-        iconCard.renderIcon(flagLogin);
+      //  console.log(localStorage.getItem('name'))
+      
+       // iconCard.renderIcon(localStorage.getItem('name'));
         //прослушка иконок отправка запроса
         if (flagLogin) {
-          const iconsAdd = newsContainer.querySelectorAll('.news__tag_add');
-          iconAddHandler(iconsAdd)
+          iconAddHandler();
         }
-
       })
       .catch(err => {
-        console.log('err', err)
+        notFound.classList.remove('not-found_none');
       })
   })
 
@@ -149,25 +148,25 @@ import { NewsCard } from './components/NewsCard';
   //Проcлушки
 
   //клик на бургер
-  burger.addEventListener('click', event =>{
+  burger.addEventListener('click', event => {
     event.target.classList.toggle('nav__menu-burger_light')
     event.target.classList.toggle('nav__menu-burger_close-light')
     navLinks.classList.toggle('nav_none');
     // overlay.classList.add('overlay_is-opened')
- 
+
   })
 
   // Прослушка иконки добавить карточку себе в сохраненные
-  function iconAddHandler(iconsAdd) {
-
+  function iconAddHandler() {
+    const iconsAdd = newsContainer.querySelectorAll('.news__tag_add');
     iconsAdd.forEach(iconAdd => {
       iconAdd.addEventListener('click', event => {
 
         const data = getDataToSaved(event);
         const token = localStorage.getItem('token');
         mainApi.createArticle(data, token)
-          .then(data => {
-            console.log('succes')
+          .then(res => {
+            console.log(res.data)
           })
           .catch(err => {
             console.log('err')
@@ -190,7 +189,6 @@ import { NewsCard } from './components/NewsCard';
     };
 
   }
-
 
   //Слухаем кнопку авторизация
   btnAuth.addEventListener('click', event => {
@@ -275,7 +273,7 @@ import { NewsCard } from './components/NewsCard';
                 flagLogin = true;
 
                 //статус иконок меняем, если был поиск новостей
-                iconCard.renderIcon(flagLogin);
+                newsCardList.newsCardHandler();
 
                 popup.close();
                 popup.clearContent();

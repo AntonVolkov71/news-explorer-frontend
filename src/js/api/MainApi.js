@@ -14,7 +14,6 @@ export class MainApi {
       return res.json()
     }
     return Promise.reject(res.status)
-    // throw new Error(res.status)
   }
 
   _handleError(err) {
@@ -88,4 +87,17 @@ export class MainApi {
       .catch(this._handleError)
   }
 
+  //Удаление карточки
+  removeArticle(id, token) {
+   // return console.log(`${this.url}articles/${id}`)
+    return fetch(`${this.url}articles/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `Bearer ${token}`,
+      }
+    })
+      .then(this._handleResult)
+      .catch(this._handleError)
+  }
 }

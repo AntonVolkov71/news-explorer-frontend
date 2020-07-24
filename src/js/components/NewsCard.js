@@ -4,21 +4,22 @@
 export class NewsCard {
   constructor(container) {
     this.container = container;
-
   }
 
   //доступна ли иконка в зав-ти о логина
-  renderIcon(isLogin) {
-    const icons = this.container.querySelectorAll('.news__tag_add');
-
-    icons.forEach(tag => {
-      if (isLogin) {
-        tag.classList.add('news__tag_add_states');
-        this.iconLogHandler(tag);
+  renderIcon(isLogin, card) {
+    
+    const icon = card.querySelector('.news__tag_add');
+    console.log(icon)
+    // icon.forEach(tag => {
+      if (isLogin !== null) {
+        // console.log(tag)
+        icon.classList.add('news__tag_add_states');
+        this.iconLogHandler(icon);
       } else {
-        this.iconNoLogHandler(tag);
+        this.iconNoLogHandler(ticong);
       }
-    })
+    //})
   }
 
   //прослушки иконки если не залоган, вылетает сообщение
@@ -32,15 +33,13 @@ export class NewsCard {
   }
 
   //Прослушка если залоган, отрисовка маркера
-  iconLogHandler(tag  ) {
+  iconLogHandler(tag) {
     //отключить ховер при залогане
     tag.addEventListener('mouseover', event => {
       tag.previousElementSibling.classList.add('new__tag_none')
     });
-    // console.log(tag)
     //можно сохранить один раз
     tag.addEventListener('click', event => {
-      // console.log(event.target)
       //показать что успешно
       tag.previousElementSibling.textContent = 'Сохранение успешно';
       tag.previousElementSibling.classList.remove('new__tag_none');
@@ -53,6 +52,5 @@ export class NewsCard {
       event.target.classList.add('news__tag_add_mark');
       event.target.disabled = true;
     })
-
   }
 }

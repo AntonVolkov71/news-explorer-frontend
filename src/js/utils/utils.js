@@ -26,9 +26,15 @@ const setFormatDate = (importDate) => {
   };
 
   const resDate = `${date.toLocaleString("ru", dayMonth)}, ${date.toLocaleString("ru", year)}`;
-
   return resDate;
 }
 
+const cutEar = (num) => {
+  num += '';
+  if (num.slice(-1) === '1' & num.slice(-2) !== '11') {
+    return `сохраненная статья`;
+  }
+  return `сохраненных статей`;
+}
 
-export { getMetadataKeys, setFormatDate }
+export { getMetadataKeys, setFormatDate, cutEar }

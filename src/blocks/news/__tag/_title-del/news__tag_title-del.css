@@ -1,8 +1,3 @@
 div .news__tag_title-del {
   height: max-content;
 }
-
-.news__tag_title-del:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
-}

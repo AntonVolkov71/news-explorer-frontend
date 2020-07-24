@@ -1,5 +1,6 @@
 div .news__tag_del {
   padding: 0;
+  cursor: pointer;
 }
 
 .news__tag_del::after {
@@ -15,6 +16,7 @@ div .news__tag_del {
   background-image: url(../../../../images/del-norm.png);
   background-position: center;
   background-size: cover;
+  
 }
 
 .news__tag_del:hover::after {

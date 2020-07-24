@@ -2,7 +2,7 @@
 @import url(./__title/desc-news__title.css);
 @import url(./__key-words/desc-news__key-words.css);
 @import url(./__container/desc-news__container.css);
-
+@import url(./_none/decs-news_none.css);
 
 .desc-news {
 width: 100%;
