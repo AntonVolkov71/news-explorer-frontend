@@ -121,8 +121,9 @@ export class NewsCardList {
 
   //Прослушка тыка карточки 
   newsCardHandler() {
-    
-    this.iconCard.renderIcon(localStorage.getItem('name'), this.newsCard)
+    const id = this.newsCard.getAttribute('_id');
+    //доступность иконки(только для главной странциы)
+    !id && this.iconCard.renderIcon(localStorage.getItem('name'), this.newsCard);
     //TODO вызвать NewsCard прослушки
     this.newsCard.addEventListener('click', event => {
       const urlCard = event.target.closest('.news__card').getAttribute('url');

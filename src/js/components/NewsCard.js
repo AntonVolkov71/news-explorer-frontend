@@ -9,17 +9,13 @@ export class NewsCard {
   //доступна ли иконка в зав-ти о логина
   renderIcon(isLogin, card) {
     
-    const icon = card.querySelector('.news__tag_add');
-    console.log(icon)
-    // icon.forEach(tag => {
+    const icon = card.querySelector('button');
       if (isLogin !== null) {
-        // console.log(tag)
         icon.classList.add('news__tag_add_states');
         this.iconLogHandler(icon);
       } else {
         this.iconNoLogHandler(ticong);
       }
-    //})
   }
 
   //прослушки иконки если не залоган, вылетает сообщение
