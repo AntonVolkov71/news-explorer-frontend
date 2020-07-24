@@ -18,8 +18,9 @@ div .news__tag_del {
   background-size: cover;
   
 }
-
+.news__tag_del:active {
+  transform: scale(0.8);
+}
 .news__tag_del:hover::after {
   background-image: url(../../../../images/del-hover.png);
-
 }

@@ -28,8 +28,8 @@ import { NewsCard } from './components/NewsCard';
   //Сууущности
   const mainApi = new MainApi(urlMainApi);
   const header = new Header(headerHTML, 'saved');
-  const newsCardList = new NewsCardList(news, newsContainer, preloader);
   const iconCard = new NewsCard(newsContainer);
+  const newsCardList = new NewsCardList(news, newsContainer, preloader,iconCard);
 
 
   //проверка на регистрацию при начальной загрузки
@@ -73,8 +73,8 @@ import { NewsCard } from './components/NewsCard';
         //Состояние иконок
         iconCard.renderIcon();
 
-        //Прослушка иконок
-        iconDelHandler();
+        // //Прослушка иконок
+        // iconDelHandler();
         //Прослушка карочек
       })
       .catch(err => {

@@ -43,7 +43,7 @@ import { NewsCard } from './components/NewsCard';
   const header = new Header(headerHTML, 'main');
   const newsApi = new NewsApi({ url: urlNewsApi, token: apiKeyNewsApi, dateTo, dateFrom, pageSize });
   const findForm = new Form(searchForm, errorMessages);
-  const iconCard = new NewsCard(newsContainer);
+  const iconCard = new NewsCard(newsContainer, mainApi,findForm);
   const newsCardList = new NewsCardList(news, newsContainer, preloader, iconCard);
 
 
@@ -107,7 +107,7 @@ import { NewsCard } from './components/NewsCard';
 
         //TODO если новостей ноль то->
         if (res.totalResults === 0) {
-          closeButtonTitle(); 
+          closeButtonTitle();
           return notFound.classList.remove('not-found_none');
         }
 
@@ -115,13 +115,10 @@ import { NewsCard } from './components/NewsCard';
         newsCardList.renderResults(res.articles)
 
         //Состояние иконок
-      //  console.log(localStorage.getItem('name'))
-      
-       // iconCard.renderIcon(localStorage.getItem('name'));
+        //  console.log(localStorage.getItem('name'))
+        // iconCard.renderIcon(localStorage.getItem('name'));
         //прослушка иконок отправка запроса
-        if (flagLogin) {
-          iconAddHandler();
-        }
+
       })
       .catch(err => {
         notFound.classList.remove('not-found_none');
@@ -156,39 +153,7 @@ import { NewsCard } from './components/NewsCard';
 
   })
 
-  // Прослушка иконки добавить карточку себе в сохраненные
-  function iconAddHandler() {
-    const iconsAdd = newsContainer.querySelectorAll('.news__tag_add');
-    iconsAdd.forEach(iconAdd => {
-      iconAdd.addEventListener('click', event => {
 
-        const data = getDataToSaved(event);
-        const token = localStorage.getItem('token');
-        mainApi.createArticle(data, token)
-          .then(res => {
-            console.log(res.data)
-          })
-          .catch(err => {
-            console.log('err')
-          })
-      })
-    })
-  }
-  //Получение значений для отправки карточки карточки
-  function getDataToSaved() {
-    const card = event.target.closest('.news__card');
-
-    return {
-      keyword: findForm.getInfo().query,
-      title: card.querySelector('.news__title').textContent,
-      text: card.querySelector('.news__text').textContent,
-      date: card.querySelector('.news__date').textContent,
-      source: card.querySelector('.news__source').textContent,
-      link: card.getAttribute('url'),
-      image: card.querySelector('.news__image').style.backgroundImage.slice(5, -2)
-    };
-
-  }
 
   //Слухаем кнопку авторизация
   btnAuth.addEventListener('click', event => {
@@ -273,13 +238,14 @@ import { NewsCard } from './components/NewsCard';
                 flagLogin = true;
 
                 //статус иконок меняем, если был поиск новостей
-                newsCardList.newsCardHandler();
+                const cards = root.querySelectorAll('.news__card')
+                if (cards.length > 0) {
+                  cards.forEach(card => iconCard.renderIcon(flagLogin, card))
+                }
 
                 popup.close();
                 popup.clearContent();
               })
-
-
           })
           .catch(err => {
             formEntity.setServerError(err.message);

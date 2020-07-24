@@ -19,7 +19,9 @@ div .news__tag_add {
   background-position: center;
   background-size: cover;
 
-  
+}
+.news__tag_add:active {
+  transform: scale(0.8);
 }
 
 

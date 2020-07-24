@@ -18,7 +18,8 @@ export class NewsCardList {
     if (_id) {
       newsCard.setAttribute('_id', _id)
     }
-    newsCard.setAttribute('url', url)
+    newsCard.setAttribute('url', url);
+    
 
     //прослушка на клик 
     this.newsCardHandler();
@@ -122,8 +123,9 @@ export class NewsCardList {
   //Прослушка тыка карточки 
   newsCardHandler() {
     const id = this.newsCard.getAttribute('_id');
-    //доступность иконки(только для главной странциы)
-    !id && this.iconCard.renderIcon(localStorage.getItem('name'), this.newsCard);
+   // console.log(id == null )
+    this.iconCard.renderIcon(localStorage.getItem('name'), this.newsCard);
+
     //TODO вызвать NewsCard прослушки
     this.newsCard.addEventListener('click', event => {
       const urlCard = event.target.closest('.news__card').getAttribute('url');
