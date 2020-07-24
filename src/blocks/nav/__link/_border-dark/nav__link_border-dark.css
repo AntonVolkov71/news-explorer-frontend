@@ -2,6 +2,7 @@
 
   padding-bottom: 44px;
   border-bottom: 3px solid #1A1B22;
+  z-index: 6;
 }
 
 @media only screen and (min-width: 768px) and (max-width : 1024px) {

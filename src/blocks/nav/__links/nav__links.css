@@ -3,9 +3,9 @@
   div .nav__links {
     position: absolute;
 
-    padding: 16px;
+    padding: 16px ;
 
-    top: 100%;
+    top: calc(100% + 1px);
     left: 0;
 
     width: 100%;
@@ -13,5 +13,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
+    
   }
 }

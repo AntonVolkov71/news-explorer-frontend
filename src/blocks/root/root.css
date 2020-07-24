@@ -3,7 +3,7 @@
 
   min-width: 320px;
   max-width: 1440px;
-  height: auto;
+  height: max-content;
 
   box-sizing: border-box;
   

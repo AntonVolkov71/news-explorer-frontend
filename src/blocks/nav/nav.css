@@ -15,20 +15,24 @@
   align-items: center;
   justify-content: space-between;
 
- 
+  width: 89%;
   padding: 30px 0;
 
   box-sizing: border-box;
 
+  z-index: 5;
+ 
 }
 @media only screen and (min-width: 768px) and (max-width : 1024px) {
   .nav {
     padding: 14px 0 12px;
+    width: 89.5833%
   }
 }
 
 @media only screen and (max-width : 767px) {
   .nav {
-    padding: 16px 0;
+    padding: 16px;
+    width: 100%;
   }
-}
+} 

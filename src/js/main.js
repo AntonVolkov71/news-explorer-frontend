@@ -7,7 +7,6 @@ import { Header } from './components/Header';
 import { NewsApi } from './api/NewsApi';
 import { getMetadataKeys } from './utils/utils';
 import { NewsCardList } from './components/NewsCardList'
-import { articles } from './DATA_NEWS'; //TODO удалить после отладки
 import { NewsCard } from './components/NewsCard';
 
 
@@ -37,16 +36,15 @@ import { NewsCard } from './components/NewsCard';
   const title = newsContainer.querySelector('.news__res-title');
   const burger = root.querySelector('.nav__menu-burger');
   const navLinks = root.querySelector('.nav__links');
+  const nav = root.querySelector('.nav');
 
   //Сууущности
   const mainApi = new MainApi(urlMainApi);
   const header = new Header(headerHTML, 'main');
   const newsApi = new NewsApi({ url: urlNewsApi, token: apiKeyNewsApi, dateTo, dateFrom, pageSize });
   const findForm = new Form(searchForm, errorMessages);
-  const iconCard = new NewsCard(newsContainer, mainApi,findForm);
+  const iconCard = new NewsCard(newsContainer, mainApi, findForm);
   const newsCardList = new NewsCardList(news, newsContainer, preloader, iconCard);
-
-
 
   //проверка на аутентификацию при начальной загрузки
   if (tokenMainApi) {
@@ -62,7 +60,6 @@ import { NewsCard } from './components/NewsCard';
       })
   };
 
-
   //Поиск новостей
   searchForm.addEventListener('submit', event => {
     event.preventDefault();
@@ -72,7 +69,6 @@ import { NewsCard } from './components/NewsCard';
     //стереть старый поиск
     const cards = newsContainer.querySelectorAll('.news__card');
     const newsCards = newsContainer.querySelector('.news__cards');
-
 
     //убрать от предыдущего поиска кнопку и тайтл, карточки
     if (cards.length > 0) {
@@ -105,7 +101,7 @@ import { NewsCard } from './components/NewsCard';
         //preloader
         newsCardList.renderLoader();
 
-        //TODO если новостей ноль то->
+        //если новостей ноль то->
         if (res.totalResults === 0) {
           closeButtonTitle();
           return notFound.classList.remove('not-found_none');
@@ -113,19 +109,13 @@ import { NewsCard } from './components/NewsCard';
 
         //отсылаем результаты на создание карточек
         newsCardList.renderResults(res.articles)
-
-        //Состояние иконок
-        //  console.log(localStorage.getItem('name'))
-        // iconCard.renderIcon(localStorage.getItem('name'));
-        //прослушка иконок отправка запроса
-
       })
       .catch(err => {
         notFound.classList.remove('not-found_none');
       })
   })
 
-  //Убрать показать татйл и кнопку 
+  //Убрать показать тайтл и кнопку 
   function showButtonTitle() {
     buttonMore.classList.remove('news_close');
     title.classList.remove('news_close');
@@ -142,21 +132,63 @@ import { NewsCard } from './components/NewsCard';
     popupNew.popup.querySelector('form') && controlForms(popupNew);
   })
 
+
+  //открытие закрытие меню
+  function toggleMenu() {
+    nav.classList.toggle('nav__bg-dark')
+    navLinks.classList.toggle('nav_none');
+    navLinks.classList.toggle('nav__bg-dark');
+    overlay.classList.toggle('overlay_is-opened');
+  }
+
+  //закрытие меню и возврат бургера
+  function rebackIconBurger(burger) {
+    burger.classList.add('nav__menu-burger_light')
+    burger.classList.remove('nav__menu-burger_close-light');
+  }
+  function closeMenu() {
+    nav.classList.remove('nav__bg-dark')
+    navLinks.classList.add('nav_none');
+    navLinks.classList.remove('nav__bg-dark');
+    overlay.classList.remove('overlay_is-opened');
+  };
+
+  //смена значка бургера
+  function toggleIconBurger(burger) {
+    burger.classList.toggle('nav__menu-burger_light')
+    burger.classList.toggle('nav__menu-burger_close-light');
+  }
+
+  //Запрос на регистрацию
+  //Переключение между попапом авторизации и входом
+  function togglePopup(popup) {
+    const link = popup.popup
+      .querySelector('.popup__link')
+      .addEventListener('click', event => {
+        popup.close()
+        popup.clearContent()
+        popupsNew[event.target.className.slice(24)].open()
+      })
+  }
+
   //Проcлушки
 
   //клик на бургер
   burger.addEventListener('click', event => {
-    event.target.classList.toggle('nav__menu-burger_light')
-    event.target.classList.toggle('nav__menu-burger_close-light')
-    navLinks.classList.toggle('nav_none');
-    // overlay.classList.add('overlay_is-opened')
-
+    toggleIconBurger(event.target)
+    toggleMenu();
   })
-
-
 
   //Слухаем кнопку авторизация
   btnAuth.addEventListener('click', event => {
+    let width = document.documentElement.clientWidth
+
+    //закрыть бургерное меню
+    if (width < 768) {
+      toggleIconBurger(burger)
+      toggleMenu();
+    }
+
     //Октрытие попа авторизации
     popupsNew[event.target.id.slice(4)].open();
     popupsNew[event.target.id.slice(4)].clearContent();
@@ -171,7 +203,8 @@ import { NewsCard } from './components/NewsCard';
 
   //Закрытие попапа 
   function closePopupHandler(popup) {
-    const closerPopup = popup.popup.querySelector('.popup__close')
+    const closerPopup = popup.popup.querySelector('.popup__close');
+
     // кликом
     popup.popup.addEventListener('click', event => {
       const besidePopup = event.target.classList.contains('popup');
@@ -188,8 +221,8 @@ import { NewsCard } from './components/NewsCard';
         popup.close();
         popup.clearContent();
       };
-    })
-  }
+    });
+  };
 
   //Управление формами
   function controlForms(popup) {
@@ -198,9 +231,8 @@ import { NewsCard } from './components/NewsCard';
       .forEach(form => {
         const formEntity = new Form(form, errorMessages)
         formHandler(form, formEntity, popup)
-      })
-
-  }
+      });
+  };
 
   //Просулшка сабмита формы
   function formHandler(form, formEntity, popup) {
@@ -263,17 +295,16 @@ import { NewsCard } from './components/NewsCard';
     window.location.reload();
   })
 
-  //Запрос на регистрацию
-  //Переключение между попапом авторизации и входом
-  function togglePopup(popup) {
-    const link = popup.popup
-      .querySelector('.popup__link')
-      .addEventListener('click', event => {
-        popup.close()
-        popup.clearContent()
-        popupsNew[event.target.className.slice(24)].open()
-      })
-  }
+
+
+  //изменение окна
+  window.addEventListener(`resize`, event => {
+    const width = event.target.innerWidth;
+    if (width > 767) {
+      rebackIconBurger(burger)
+      closeMenu();
+    }
+  }, false);
 })()
 
 

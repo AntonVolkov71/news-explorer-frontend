@@ -1,12 +1,9 @@
-// NewsCard. Класс карточки новости. Методы:
-// renderIcon — отвечает за отрисовку иконки карточки. У этой иконки три состояния: иконка незалогиненного пользователя, активная иконка залогиненного, неактивная иконка залогиненного.
-
 export class NewsCard {
-  constructor(container, mainApi, findForm) {
+  constructor(container, mainApi, findForm, queryArticles,) {
     this.container = container;
     this.mainApi = mainApi;
     this.findForm = findForm;
-
+    this.query = queryArticles;
   }
 
   //доступна ли иконка в зав-ти о логина
@@ -48,8 +45,7 @@ export class NewsCard {
         tag.previousElementSibling.classList.add('new__tag_none')
       });
       //Прослушка кнопочки добавить/удалить
-      this.tagMainPageHandlet(tag)
-
+      this.tagMainPageHandlet(tag);
     }
   }
   //Прослушка если главная страница
@@ -66,7 +62,23 @@ export class NewsCard {
 
   //Прослушка если  страница с сохраненными статьями
   tagSavedPageHandler(tag) {
-    console.log(tag)
+    tag.addEventListener('click', event => {
+      const newsCards = this.container.querySelector('.news__cards');//смогу сделать
+      const token = localStorage.getItem('token');
+      const card = event.target.closest('.news__card');
+      const id = card.getAttribute('_id');
+      confirm(`Вы уверены, может оставим карточку?`);
+      //Запрос на удаление
+      this.mainApi.removeArticle(id, token)
+        .then(res => {
+          //Перерисовка блока с новостями
+          newsCards.innerHTML = '';
+          this.query(localStorage.getItem('name'));
+        })
+        .catch(err => {
+          console.log(err.message)
+        })
+    });
   }
 
   //Удаление карточки если сохранил на главной
@@ -84,6 +96,8 @@ export class NewsCard {
         console.log(err)
       })
   }
+
+
   // добавить карточку себе в сохраненные
   saved(event) {
     const data = this.getDataToSaved(event);

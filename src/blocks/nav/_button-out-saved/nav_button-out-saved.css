@@ -1,8 +1,8 @@
-.nav_button-out-saved {
+div .nav_button-out-saved {
   
   border: 1px solid #1A1B22;
   color: #1A1B22;
-
+  
   margin-left: 32px;
 }
 
@@ -31,9 +31,9 @@
   }
 }
 @media only screen and (max-width : 767px) {
-  .nav_button-out-saved {
+  div .nav_button-out-saved {
     width: 288px;
     box-sizing: border-box;
-    margin: 0;
+    margin: 16px 0 0 0;
   }
 }

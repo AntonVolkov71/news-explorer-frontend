@@ -5,19 +5,25 @@
 @import url(./__button/_return/overlay__button_return.css);
 
 .overlay {
+    position: absolute;
+   top:0;
+   left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    opacity: 0.5;
     
-   
-    width: 100vw;
-    height: 100vmax;
-    background-color: yellow;
-    /* display: flex;
-    align-items: center;
-    justify-content: center; */
-    /* //z-index: 1;  */
+     z-index: 3;
     display: none;
 }
 
 @media only screen and (min-width : 767px) {
+    .overlay {
+        display: none;
+    }
+}
+
+@media only screen and (max-width : 767px) {
     .overlay {
         display: none;
     }
