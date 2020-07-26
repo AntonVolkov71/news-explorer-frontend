@@ -1,0 +1,33 @@
+.not-found__mourn {
+  width: 356px;
+
+    box-sizing: border-box;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #B6BCBF;
+
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+
+@media only screen and (min-width: 321px) and (max-width : 767) {
+  .not-found__mourn {
+    font-size: 12px;    
+    max-width: 336px;
+
+  }
+}
+@media only screen and  (max-width : 320px) {
+  .not-found__mourn {
+    font-size: 12px;    
+    max-width: 288px;
+
+  }
+}

@@ -1,0 +1,29 @@
+.news__text {
+  font-family: roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  
+  margin:0;
+  padding: 0;
+
+  color: #1A1B22;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  max-height: 112px;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .news__text {
+    max-height: 88px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .news__text {
+    max-height: 88px;
+  }
+}

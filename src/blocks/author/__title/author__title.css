@@ -1,0 +1,28 @@
+.author__title {
+  font-family: robotoslab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+
+  padding: 0;
+  margin: 0;
+  margin-bottom: 24px;
+
+  color: #1A1B22;
+  text-align: start;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .author__title {
+    font-size: 30px;
+    line-height: 40px;
+    }
+}
+
+@media only screen and (max-width : 767px) {
+  .author__title {
+    font-size: 30px;
+    line-height: 40px;
+    }
+}

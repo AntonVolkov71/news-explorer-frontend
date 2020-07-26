@@ -1,0 +1,25 @@
+.news__container {
+  margin:0;
+  padding: 0;
+
+  width: 89%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  text-align: start;
+
+}
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .news__container {
+    padding: 40px 0;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .news__container {
+    padding: 16px 0;
+    width: 89%;
+  }
+}

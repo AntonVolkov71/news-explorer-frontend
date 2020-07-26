@@ -1,0 +1,28 @@
+div .news__source {
+  font-family: robotoslab;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  
+  margin:18px 0 0;
+  padding: 0;
+
+  text-transform: uppercase;
+
+  justify-items: flex-end;
+
+  color: #B6BCBF;
+}
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  div .news__source{
+    margin: 12px 0 0;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  div .news__source {
+    margin: 12px 0 0;
+  }
+}

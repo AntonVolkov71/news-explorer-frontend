@@ -1,0 +1,13 @@
+div .news__tag_auth {
+  height: max-content;
+}
+@media only screen and (min-width: 769px) and (max-width : 1280px) {
+  div .news__tag_auth {
+    padding: 8px 4px;  }
+}
+
+@media only screen and (min-width: 321px) and (max-width : 768px) {
+  div .news__tag_auth {
+    padding: 8px 4px;  
+  }
+}

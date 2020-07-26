@@ -1,0 +1,48 @@
+@import url(./__container/news__container.css);
+@import url(./__res-title/news__res-title.css);
+@import url(./__cards/news__cards.css);
+@import url(./__button-more/news__button-more.css);
+@import url(./__card/news__card.css);
+@import url(./__image/news__image.css);
+@import url(./__about/news__about.css);
+@import url(./__date/news__date.css);
+@import url(./__title/news__title.css);
+@import url(./__text/news__text.css);
+@import url(./__source/news__source.css);
+@import url(./__tools/news__tools.css);
+@import url(./__left/news__left.css);
+@import url(./__right/news__right.css);
+@import url(./__tag/news__tag.css);
+@import url(./_close/news_close.css);
+@import url(./_none/news_none.css);
+
+.news {
+  width: 100%;
+  height: auto;
+  box-sizing: border-box;
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding:80px 0;
+  margin:0 auto;
+
+  background-color:  #F5F6F7;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1023px) {
+  .news {
+    padding: 40px 0;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+ .news {
+    padding:32px 0;    
+    width: 100%;
+  }
+}

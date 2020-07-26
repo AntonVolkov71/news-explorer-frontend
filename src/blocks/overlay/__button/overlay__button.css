@@ -1,0 +1,10 @@
+.overlay__button {
+   display: inline-block;
+   min-width: 400px;
+   height: 70px;
+   background-color:  #b1f7fc;
+   border-radius: 20px;
+   margin: 35px;
+   font-size: 2rem;
+   color: black;
+}

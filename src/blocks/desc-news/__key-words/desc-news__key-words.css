@@ -1,0 +1,25 @@
+.desc-news__key-words {
+  font-family: roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+
+  color: #1A1B22; 
+  max-width: 530px;
+
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (min-width: 321px) and (max-width : 767) {
+  .desc-news__key-words {
+    max-width: 330px;
+
+  }
+}
+@media only screen and  (max-width : 320px) {
+  .desc-news__key-words {
+    max-width: 288px;
+  }
+}

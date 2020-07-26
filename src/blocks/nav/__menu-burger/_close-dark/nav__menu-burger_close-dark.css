@@ -1,0 +1,8 @@
+div .nav__menu-burger_close-dark:after {
+  background-image: url(../../../../images/close-dark.png);
+}
+
+div .nav__menu-burger_close-dark:hover:after {
+  background-image: url(../../../../images/close-hover.png);
+
+}

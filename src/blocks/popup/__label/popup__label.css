@@ -1,0 +1,15 @@
+div .popup__label {
+  display: block;
+  
+  font-family: inter-regular;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 15px;
+  
+  color: #2F71E5;
+
+  margin:0 0 9px;
+  padding: 0;
+
+}

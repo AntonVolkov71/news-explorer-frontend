@@ -1,0 +1,27 @@
+@import url(./_states/news__tag_add_states.css);
+
+div .news__tag_add {
+  padding: 0;
+  cursor: pointer;
+}
+
+.news__tag_add::after {
+  content: "";
+  display: inline-block;
+
+  height: 20px;
+  width: 40px;
+  box-sizing: border-box;
+
+  vertical-align: middle;
+
+  background-image: url(../../../../images/add-norm.png);
+  background-position: center;
+  background-size: cover;
+
+}
+.news__tag_add:active {
+  transform: scale(0.8);
+}
+
+

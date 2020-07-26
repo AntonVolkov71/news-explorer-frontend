@@ -1,0 +1,47 @@
+div .news__button-more {
+  border: none;
+  background-color: #fff;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  padding: 18px 84px;
+  margin: 64px 0 0;
+  
+  color: #1A1B22;
+
+  align-self: center;
+}
+
+div .news__button-more:hover {
+  opacity: 0.9;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  div .news__button-more {
+    margin: 32px 0 0;
+  }
+}
+
+@media only screen and (min-width: 669px) and (max-width : 767px) {
+  div .news__button-more {
+    margin: 24px 0 0;
+  }
+}
+@media only screen and (min-width: 451px) and (max-width : 668px) {
+  div .news__button-more {
+    padding: 18px 24px;
+    margin: 24px 0 0;
+  }
+}
+
+@media only screen and (max-width : 450px) {
+  div .news__button-more {
+    width: 100%;
+    padding: 18px 24px;
+    margin: 24px 0 0;
+  }
+}

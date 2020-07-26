@@ -1,0 +1,22 @@
+.nav_button-auth {
+  border: 1px solid #fff;
+  color: #fff;
+
+  margin-left: 32px;
+}
+.nav_button-auth:hover {
+  border-color: #B6BCBF;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .nav_button-auth    {
+    margin-left: 16px;
+  }
+}
+@media only screen and (max-width : 767px) {
+  .nav_button-auth    {
+    width: 288px;
+    box-sizing: border-box;
+    margin: 22px 0 0;
+  }
+}

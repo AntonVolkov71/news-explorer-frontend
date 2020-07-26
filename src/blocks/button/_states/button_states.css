@@ -1,0 +1,7 @@
+div .button_states:hover {
+  color: #B6BCBF;
+}
+div .button_states:active {
+  
+  transform: scale(0.9);
+}

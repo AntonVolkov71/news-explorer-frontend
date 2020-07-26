@@ -1,0 +1,17 @@
+@import url(./_bg-main/header_bg-main.css);
+@import url(./_bg-saved/header_bg-saved.css);
+
+.header {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  
+  font-family: roboto, sans-serif;
+}

@@ -1,0 +1,27 @@
+@import url(./_align-left/popup__content_align-left.css);
+
+.popup__content {
+  width:430px;
+  box-sizing: border-box;
+
+  background-color: #fff;
+  border-radius: 16px;
+
+  position: relative;
+
+  margin:0 16px;
+  padding: 34px 36px;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .popup__content {
+    padding: 26px 26px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .popup__content {
+    width: 320px;
+    padding: 20px 16px;
+  }
+} 

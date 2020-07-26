@@ -1,0 +1,19 @@
+@import url(./__container/author__container.css);
+@import url(./__photo/author__photo.css);
+@import url(./__info/author__info.css);
+@import url(./__title/author__title.css);
+
+.author {
+  width: 100%;  
+  
+  padding:0;
+  margin:0;
+
+  display: flex;
+  justify-content: center; 
+
+  box-sizing: border-box;
+  
+  background-color: #fff;
+
+}

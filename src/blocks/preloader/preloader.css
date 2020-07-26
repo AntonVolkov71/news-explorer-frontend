@@ -1,0 +1,15 @@
+@import url(./__info/preloder__info.css);
+@import url(./_none/preloader_none.css);
+
+.preloader {
+  
+  background: #F5F6F7;
+  
+  margin: 0;
+  padding: 0;
+
+  position: relative; 
+
+  box-sizing: border-box;
+
+}

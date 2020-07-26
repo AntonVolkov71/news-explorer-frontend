@@ -1,0 +1,39 @@
+div .nav_button-out-saved {
+  
+  border: 1px solid #1A1B22;
+  color: #1A1B22;
+  
+  margin-left: 32px;
+}
+
+.nav_button-out-saved:hover {
+  border-color: #B6BCBF;
+}
+
+.nav_button-out-saved:after {
+  content: "";
+  display: inline-block;
+  background-image: url(../../../images/Union_black.png);
+  height: 16px;
+  width: 18px;
+  margin-left: 8px;
+  margin-right: -1px;
+  vertical-align: middle;
+}
+
+.nav_button-out-saved:hover:after {
+  background-image: url(../../../images/Union_hover.png);
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .nav_button-out-saved {
+    margin-left: 16px;
+  }
+}
+@media only screen and (max-width : 767px) {
+  div .nav_button-out-saved {
+    width: 288px;
+    box-sizing: border-box;
+    margin: 16px 0 0 0;
+  }
+}

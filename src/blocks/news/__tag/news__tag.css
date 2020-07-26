@@ -1,0 +1,34 @@
+@import url(./_add/news__tag_add.css);
+@import url(./_add_mark/news__tag_add_mark.css);
+@import url(./_none/new__tag_none.css);
+@import url(./_del/news__tag_del.css);
+@import url(./_key/news__tag_key.css);
+@import url(./_title-del/news__tag_title-del.css);
+@import url(./_auth/news__tag_auth.css);
+
+.news__tag {
+  display: inline-block;
+
+  height: 40px;
+  box-sizing: border-box;
+
+  margin:0;
+  padding: 8px 12px;
+
+  background: #FFFFFF;
+
+  font-family: roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+
+  color: #000;
+
+  border: none;
+  border-radius: 10px;
+  outline: none;
+
+}
+

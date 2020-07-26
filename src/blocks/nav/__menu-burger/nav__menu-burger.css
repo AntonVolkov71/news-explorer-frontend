@@ -1,0 +1,30 @@
+@import url(./_dark/nav__menu-burger_dark.css);
+@import url(./_light/nav__menu-burger_light.css);
+@import url(./_close-dark/nav__menu-burger_close-dark.css);
+@import url(./_close-light/nav__menu-burger_close-light.css);
+
+.nav__menu-burger {
+  border: none;
+}
+.nav__menu-burger:hover {
+  color:#B6BCBF;
+}
+.nav__menu-burger:active {
+  transform: scale(0.8);
+}
+
+.nav__menu-burger:after {
+  content: "";
+  display: inline-block;
+  height: 24px;
+  width: 24px;
+  margin: 0;
+  vertical-align: middle;
+}
+
+
+@media only screen and (min-width: 768px)  {
+  div .nav__menu-burger {
+    display: none;
+  }
+}

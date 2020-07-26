@@ -1,0 +1,27 @@
+.news__about {
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin:0;
+  padding: 24px;
+
+  height: 304px;
+
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .news__about {
+    padding: 16px;
+    height: 250px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .news__about {
+    padding: 16px;
+    height: 245px;
+  }
+}
