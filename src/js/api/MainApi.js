@@ -89,7 +89,6 @@ export class MainApi {
 
   //Удаление карточки
   removeArticle(id, token) {
-   // return console.log(`${this.url}articles/${id}`)
     return fetch(`${this.url}articles/${id}`, {
       method: 'DELETE',
       headers: {

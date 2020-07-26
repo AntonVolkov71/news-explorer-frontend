@@ -123,7 +123,6 @@ export class NewsCardList {
   //Прослушка тыка карточки 
   newsCardHandler() {
     const id = this.newsCard.getAttribute('_id');
-   // console.log(id == null )
     this.iconCard.renderIcon(localStorage.getItem('name'), this.newsCard);
 
     //TODO вызвать NewsCard прослушки

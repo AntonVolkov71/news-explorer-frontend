@@ -32,15 +32,27 @@ export class NewsCard {
   //Прослушка если залоган, отрисовка маркера
   iconLogHandler(tag, id) {
     if (id !== null) {
+      
       tag.addEventListener('mouseover', event => {
-        event.target.previousElementSibling.classList.remove('new__tag_none')
+        const cardWidth = event.target.closest('.news__card');
+        //мешает кейслов тег 
+        if (cardWidth.offsetWidth < 320) {
+          const keyWord = event.target.closest('.news__card').querySelector('.news__tag_key');
+          keyWord.classList.add('new__tag_none')
+        }
+        event.target.previousElementSibling.classList.remove('new__tag_none');
       })
       tag.addEventListener('mouseout', event => {
-        event.target.previousElementSibling.classList.add('new__tag_none')
+        event.target.previousElementSibling.classList.add('new__tag_none');
+
+        if (width < 410) {
+          const keyWord = event.target.closest('.news__card').querySelector('.news__tag_key');
+          keyWord.classList.remove('new__tag_none')
+        }
       });
       this.tagSavedPageHandler(tag);
     } else {
-      //отключить ховер при залогане
+      //отключить ховер при залоган
       tag.addEventListener('mouseover', event => {
         tag.previousElementSibling.classList.add('new__tag_none')
       });
@@ -63,13 +75,14 @@ export class NewsCard {
   //Прослушка если  страница с сохраненными статьями
   tagSavedPageHandler(tag) {
     tag.addEventListener('click', event => {
-      const newsCards = this.container.querySelector('.news__cards');//смогу сделать
+      const newsCards = this.container.querySelector('.news__cards');
       const token = localStorage.getItem('token');
       const card = event.target.closest('.news__card');
       const id = card.getAttribute('_id');
-      confirm(`Вы уверены, может оставим карточку?`);
+
+      const delcard = confirm(`Вы уверены, может оставим карточку?`);
       //Запрос на удаление
-      this.mainApi.removeArticle(id, token)
+      delcard && this.mainApi.removeArticle(id, token)
         .then(res => {
           //Перерисовка блока с новостями
           newsCards.innerHTML = '';
