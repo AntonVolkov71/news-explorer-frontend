@@ -1,0 +1,38 @@
+.news__cards {
+  width: 100%;
+
+  box-sizing: border-box;
+
+  text-align: center;
+
+  margin: 64px auto 0;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  min-height: 100%;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .news__cards {
+    margin: 32px 0 22px;
+  }
+}
+
+@media only screen and (min-width: 669px) and (max-width : 767px) {
+  div .news__cards {
+    margin: 24px 0 16px;
+  }
+}
+@media only screen and (min-width: 451px) and (max-width : 668px) {
+  .news__cards {
+    margin: 24px 0 16px;
+  }
+}
+
+@media only screen and (max-width : 450px) {
+  .news__cards {
+    margin: 24px 0 16px;
+  }
+}

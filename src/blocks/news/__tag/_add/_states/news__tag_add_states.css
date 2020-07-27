@@ -1,0 +1,4 @@
+div .news__tag_add_states:hover::after {
+  background-image: url(../../../../../images/add-hover.png);
+}
+

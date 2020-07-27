@@ -1,0 +1,22 @@
+.search__title {
+  font-family: robotoslab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 60px;
+  line-height: 64px;
+
+  color: #FFFFFF;
+  margin: 0;
+  padding: 0;
+
+  text-align: start;
+}
+
+@media only screen and (max-width : 1024px) {
+  .search__title {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}
+
+

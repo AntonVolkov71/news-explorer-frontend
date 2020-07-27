@@ -1,0 +1,38 @@
+@import url(./__link/nav__link.css);
+@import url(./_button-auth/nav_button-auth.css);
+@import url(./_button-out-main/nav_button-out-main.css);
+@import url(./_button-out-saved/nav_button-out-saved.css);
+@import url(./__copyright/nav__copyright.css);
+@import url(./__menu-burger/nav__menu-burger.css);
+@import url(./_bg-dark/nav__bg-dark.css);
+@import url(./_bg-light/nav_bg-light.css);
+@import url(./__links/nav__links.css);
+@import url(./_none/nav_none.css);
+
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 89%;
+  padding: 30px 0;
+
+  box-sizing: border-box;
+
+  z-index: 5;
+ 
+}
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  .nav {
+    padding: 14px 0 12px;
+    width: 89.5833%
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  .nav {
+    padding: 16px;
+    width: 100%;
+  }
+} 

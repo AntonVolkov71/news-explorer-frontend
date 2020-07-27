@@ -1,0 +1,20 @@
+div .nav__link_saved-saved {
+  display: inline;
+  
+  margin-left: 32px;
+
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  div .nav__link_saved-saved    {
+    margin-left: 16px;
+  }
+}
+
+@media only screen and (max-width : 767px) {
+  div .nav__link_saved-saved    {
+    margin: 22px 0;
+    display: inline-block;
+  }
+}

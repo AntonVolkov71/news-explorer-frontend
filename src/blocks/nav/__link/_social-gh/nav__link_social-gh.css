@@ -1,0 +1,16 @@
+.nav__link_social-gh::after {
+  content: "";
+  display: inline-block;
+
+  background-image: url(../../../../images/git-hub.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  height: 20px;
+  width: 20px;
+  vertical-align: middle;
+}
+
+div .nav__link_social-gh:hover::after {
+  transform: scale(1.5);
+ }

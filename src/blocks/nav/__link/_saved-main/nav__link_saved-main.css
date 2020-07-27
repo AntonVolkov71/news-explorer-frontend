@@ -1,0 +1,15 @@
+div .nav__link_saved-main {
+  margin-left: 32px;
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 768px) and (max-width : 1024px) {
+  div .nav__link_saved-main    {
+    margin-left: 16px;
+  }
+}
+@media only screen and (max-width : 767px) {
+  div .nav__link_saved-main    {
+    margin: 22px 0;
+  }
+}

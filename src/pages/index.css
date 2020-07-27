@@ -1,0 +1,24 @@
+@import url(../vendor/fonts.css);
+@import url(../blocks/root/root.css);
+@import url(../blocks/header/header.css); 
+@import url(../blocks/content-size/content-size.css);
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/nav/nav.css);
+@import url(../blocks/button/button.css);
+@import url(../blocks/search/search.css);
+@import url(../blocks/line/line.css);
+@import url(../blocks/desc-news/desc-news.css);
+@import url(../blocks/author/author.css);
+@import url(../blocks/news/news.css);
+@import url(../blocks/overlay/overlay.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/circle-preloader/circle-preloader.css);
+@import url(../blocks/preloader/preloader.css);
+@import url(../blocks/not-found/not-found.css);
+
+body {
+  
+  margin: 0;
+  padding: 0;
+}
+

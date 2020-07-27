@@ -1,0 +1,26 @@
+.not-found__title {
+  font-family: robotoslab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+
+  margin: 24px auto 16px;
+  padding: 0;
+
+
+
+  color: #1A1B22;
+}
+@media only screen and (min-width: 321px) and (max-width : 767) {
+  .not-found__title {
+    max-width: 336px;
+
+  }
+}
+@media only screen and  (max-width : 320px) {
+  .not-found__title {
+    margin: 16px auto;
+    max-width: 288px;
+  }
+}

@@ -1,0 +1,10 @@
+.popup__link {
+
+  display: inline;
+  font-family: inter-regular;
+  font-style: normal;
+  font-weight: normal;
+
+  color: #2F71E5;
+  cursor: pointer;
+}

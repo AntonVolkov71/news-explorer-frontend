@@ -1,0 +1,13 @@
+.not-found__image {
+  width: 74px;
+  height: 74px;
+
+  box-sizing: border-box;
+
+  margin: 0 auto;
+  padding: 0;
+}
+
+.not-found__image:hover {
+  margin-left: 50px;
+}

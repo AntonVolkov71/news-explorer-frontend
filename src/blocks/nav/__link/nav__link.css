@@ -1,0 +1,27 @@
+@import url(./_logo/nav__link_logo.css);
+@import url(./_saved-main/nav__link_saved-main.css);
+@import url(./_saved-saved/nav__link_saved-saved.css);
+@import url(./_border-dark/nav__link_border-dark.css);
+@import url(./_border-light/nav__link_border-light.css);
+@import url(./_none/nav__link_none.css);
+@import url(./_great-ya/nav__link_great-ya.css);
+@import url(./_social-fb/nav__link_social-fb.css);
+@import url(./_social-gh/nav__link_social-gh.css);
+@import url(./_clr-dark/nav__link_clr-dark.css);
+@import url(./_clr-light/nav__link_clr-light.css);
+
+.nav__link {
+  text-decoration: none;
+
+  font-family: roboto, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+
+  margin: 0;
+}
+
+.nav__link:hover {
+  color: #B6BCBF;
+}
