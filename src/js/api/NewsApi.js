@@ -18,7 +18,7 @@ export class NewsApi {
   //Обработка успешного запроса и выкидыш если ошибка от сервера
   _handleResult(res) {
     if (res.ok) return res.json();
-    return Promise.reject(res)
+    return Promise.reject(res.message)
   }
 
   _handleError(err) {

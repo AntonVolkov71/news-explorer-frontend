@@ -118,7 +118,7 @@ import { NewsCard } from './components/NewsCard';
     //сортировка массива по наибольшему количеству
     const amountArray = arrObjects.sort((a, b) => Object.values(b)[0] - Object.values(a)[0]);
     //Получение кей слов
-    let popularityKeys = getPopularityKeys(amountArray);
+    const popularityKeys = getPopularityKeys(amountArray);
 
     return setStringKeys(popularityKeys, amountArray.length)
   };
@@ -136,6 +136,7 @@ import { NewsCard } from './components/NewsCard';
     if (amountArray.length === 1) {
       popularityKeys = amountArray.map(el => Object.keys(el).map(key => key)[0]);
     }
+    console.log(popularityKeys)
     return popularityKeys;
   };
 

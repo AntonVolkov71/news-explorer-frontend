@@ -111,6 +111,8 @@ import { NewsCard } from './components/NewsCard';
         newsCardList.renderResults(res.articles)
       })
       .catch(err => {
+        //preloader
+        newsCardList.renderLoader();
         notFound.classList.remove('not-found_none');
       })
   })
@@ -154,7 +156,7 @@ import { NewsCard } from './components/NewsCard';
   };
 
   //смена значка бургера
-  function toggleIconBurger(burger) {
+  function onToggleIconBurger(burger) {
     burger.classList.toggle('nav__menu-burger_light')
     burger.classList.toggle('nav__menu-burger_close-light');
   }
@@ -175,24 +177,23 @@ import { NewsCard } from './components/NewsCard';
 
   //клик на бургер
   burger.addEventListener('click', event => {
-    toggleIconBurger(event.target)
+    onToggleIconBurger(event.target)
     toggleMenu();
   })
 
   //Слухаем кнопку авторизация
   btnAuth.addEventListener('click', event => {
-    let width = document.documentElement.clientWidth
+    const width = document.documentElement.clientWidth
 
     //закрыть бургерное меню
     if (width < 768) {
-      toggleIconBurger(burger)
+      onToggleIconBurger(burger)
       toggleMenu();
     }
 
     //Октрытие попа авторизации
     popupsNew[event.target.id.slice(4)].open();
     popupsNew[event.target.id.slice(4)].clearContent();
-
   });
 
   //Управление попапами

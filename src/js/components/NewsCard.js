@@ -67,8 +67,8 @@ export class NewsCard {
         ? this.saved(event)
         : this.delete(event);
       //маркировать
-      event.target.classList.toggle('news__tag_add_states');
-      event.target.classList.toggle('news__tag_add_mark');
+      // event.target.classList.toggle('news__tag_add_states');
+      // event.target.classList.toggle('news__tag_add_mark');
     })
   }
 
@@ -80,9 +80,10 @@ export class NewsCard {
       const card = event.target.closest('.news__card');
       const id = card.getAttribute('_id');
 
-      const delcard = confirm(`Вы уверены, может оставим карточку?`);
+      const confirmDel = confirm(`Вы уверены, может оставим карточку?`);
       //Запрос на удаление
-      delcard && this.mainApi.removeArticle(id, token)
+      confirmDel && this.mainApi.removeArticle(id, token)
+
         .then(res => {
           //Перерисовка блока с новостями
           newsCards.innerHTML = '';
@@ -104,6 +105,7 @@ export class NewsCard {
         setTimeout(() => {
           event.target.previousElementSibling.classList.add('new__tag_none');
         }, 1000);
+        this.markedTag(event)
       })
       .catch(err => {
         console.log(err)
@@ -123,10 +125,17 @@ export class NewsCard {
         setTimeout(() => {
           event.target.previousElementSibling.classList.add('new__tag_none');
         }, 1000);
+        this.markedTag(event)
       })
       .catch(err => {
         console.log(err)
       })
+  }
+//Маркировка тега сохра/удалить
+  markedTag(event){
+    event.target.closest('.news__card').querySelector('.news__tag_add').classList.toggle('news__tag_add_states');
+    event.target.closest('.news__card').querySelector('.news__tag_add').classList.toggle('news__tag_add_mark');
+
   }
   //Получение значений для отправки карточки карточки
   getDataToSaved(event) {
