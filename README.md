@@ -1,3 +1,4 @@
+
 ## README AntonVolkov71-diplom_news-explorer-front
 #### Read laziness? follow the [link](https://ayavolk.ga) :link:
 
@@ -22,4 +23,4 @@ You can use http or https in request.
 
 #### Техническое задание и ревью: ребята из Яндекса. :+1:
 
-____
+

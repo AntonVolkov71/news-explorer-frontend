@@ -17,7 +17,8 @@
   box-sizing: border-box;
 
   margin: 8px 0 0;
-  padding: 20px 78px;
+  padding: 20px 0;
+  text-align: center;
 }
 .popup__button:disabled {
   color: #B6BCBF;

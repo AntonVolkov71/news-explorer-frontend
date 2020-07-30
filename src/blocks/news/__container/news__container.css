@@ -2,7 +2,7 @@
   margin:0;
   padding: 0;
 
-  
+  width: 89%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -20,5 +20,6 @@
 @media only screen and (max-width : 767px) {
   .news__container {
     padding: 16px 0;
+    width: 89%;
   }
 }

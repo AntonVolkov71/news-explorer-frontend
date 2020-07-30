@@ -107,7 +107,6 @@
         <div class="popup__content">
           <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
           <h3 class="popup__title">Регистрация</h3>
-
           <form class="popup__form" name="auth">
             <div class="popup__field">
               <label class="popup__label" for="popup-auth_email">Email</label>
@@ -115,14 +114,12 @@
                 placeholder="Введите почту" value='' pattern="^[\w.-]{2,}@[\w-]+\.[a-zA-Z.]{2,}$" required>
               <span id="error-email-auth" class='popup__error-message'></span>
             </div>
-
             <div class="popup__field">
               <label class="popup__label" for="popup-auth_password">Пароль</label>
               <input type="password" id="popup-auth_password" name="password" class="popup__input popup__input_password"
                 placeholder="Введите пароль" value='' minlength="8" required>
               <span id="error-password-auth" class='popup__error-message'></span>
             </div>
-
             <div class="popup__field">
               <label class="popup__label" for="popup-auth_name">Имя</label>
               <input type="text" id="popup-auth_name" name="name" class="popup__input popup__input_name"
@@ -140,7 +137,6 @@
           </form>
         </div>
       </div>
-
       <div id="popup-signin" class="popup popup-signin popup_none">
         <div class="popup__content">
           <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
@@ -150,17 +146,14 @@
               <label class="popup__label" for="popup-signin_email">Email</label>
               <input type="text" id="popup-signin_email" name="email" class="popup__input popup__input_email"
                 placeholder="Введите почту" value='' pattern="^[\w.-]{2,}@[\w-]+\.[a-zA-Z.]{2,}$" required>
-
               <span id="error-email-signin" class='popup__error-message'></span>
             </div>
-
             <div class="popup__field">
               <label class="popup__label" for="popup-signin_password">Пароль</label>
               <input type="password" id="popup-signin_password" name="password"
                 class="popup__input popup__input_password" placeholder="Введите пароль" value='' minlength="8" required>
               <span id="error-password-signin" class='popup__error-message'></span>
             </div>
-
             <div class="popup__field-button">
               <p id="error-signin" class='popup__error-message popup__error-message_submit'></p>
               <button id="btn-signin" name="button" type="submit" class="button popup__button">Войти</button>
@@ -170,8 +163,6 @@
           </form>
         </div>
       </div>
-
-
       <div id="popup-success" class="popup popup-success popup_none">
         <div class="popup__content popup__content_align-left">
           <img src="<%=require('./images/close.png').default%>" alt="кнопочка закрыть" class="popup__close">
@@ -182,28 +173,22 @@
   </div>
 
   <template id='tmplcard'>
-
     <div class="news__card">
-
       <div class="news__image">
         <div class="news__tools">
-
           <div class="news__left"></div>
-
           <div class="news__right">
             <span class="news__tag news__tag_auth new__tag_none">Войдите, чтобы сохранять статьи</span>
             <button class="news__tag news__tag_add"></button>
           </div>
         </div>
       </div>
-
       <div class="news__about">
         <div class="news__top-container">
           <p class="news__date"></p>
           <h4 class="news__title"></h4>
           <p class="news__text"></p>
         </div>
-
         <p class="news__source"></p>
       </div>
   </template>
