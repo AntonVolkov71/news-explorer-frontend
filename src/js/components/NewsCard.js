@@ -67,9 +67,9 @@ export class NewsCard {
       const token = localStorage.getItem('token');
       const card = event.target.closest('.news__card');
       const id = card.getAttribute('_id');
-      confirm(`Вы уверены, может оставим карточку?`);
+      const confirmDel = confirm(`Вы уверены, может оставим карточку?`);
       //Запрос на удаление
-      this.mainApi.removeArticle(id, token)
+      confirmDel && this.mainApi.removeArticle(id, token)
         .then(res => {
           //Перерисовка блока с новостями
           newsCards.innerHTML = '';

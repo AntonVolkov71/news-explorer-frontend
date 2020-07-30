@@ -58,8 +58,9 @@ export class NewsCardList {
     let newsSlice;
     this.news = news;
     //Логика отрисовки карточек  и вставки кнопки
-    if (news.length > 3) {
-      newsSlice = news.splice(0, 3);
+    const mountNews = 3;
+    if (news.length > mountNews) {
+      newsSlice = news.splice(0, mountNews);
       newsSlice.forEach(newCard => {
         //отрисовка если сохранненая страница
         if (newCard['_id']) {
@@ -122,8 +123,6 @@ export class NewsCardList {
 
   //Прослушка тыка карточки 
   newsCardHandler() {
-    const id = this.newsCard.getAttribute('_id');
-   // console.log(id == null )
     this.iconCard.renderIcon(localStorage.getItem('name'), this.newsCard);
 
     //TODO вызвать NewsCard прослушки
